@@ -1,0 +1,56 @@
+/* =====================================================================
+   LISSE(脱毛サロン)— テーマ設定  ※水色・青ベース
+   ===================================================================== */
+:root{
+  --c-bg:#f8fbfe;
+  --c-bg-alt:#e9f3fb;
+  --c-surface:#ffffff;
+  --c-text:#22374b;
+  --c-muted:#5f7589;
+  --c-line:#d5e5f1;
+  --c-main:#2f7fbf;
+  --c-on-main:#ffffff;
+  --c-accent:#5aa7dc;
+  --c-dark:#1d4f7a;
+  --c-on-dark:#ffffff;
+  --c-cta:#2f7fbf;
+
+  --f-body:"Zen Kaku Gothic New","Hiragino Sans","Yu Gothic",sans-serif;
+  --f-head:"Zen Kaku Gothic New","Hiragino Sans","Yu Gothic",sans-serif;
+  --f-en:"Jost",sans-serif;
+  --en-weight:300;
+  --en-transform:uppercase;
+  --en-size:clamp(34px,5vw,60px);
+  --head-weight:700;
+  --ls-head:.08em;
+
+  --radius:10px;
+  --radius-lg:24px;
+  --radius-btn:999px;
+  --shadow:0 24px 60px -28px rgba(29,79,122,.35);
+  --cta-overlay:rgba(18,60,98,.25);
+}
+/* --- このLPだけの調整 --- */
+.p-hero--split{background:linear-gradient(180deg,var(--c-bg-alt),var(--c-bg))}
+.c-btn{background:linear-gradient(90deg,#3b8fd0,#5ab2e3);border:0}
+.c-btn--ghost{background:transparent;border:1px solid currentColor}
+.c-btn--light{background:#fff;color:var(--c-main)}
+.p-sim{display:grid;gap:24px;background:var(--c-surface);border-radius:var(--radius-lg);padding:clamp(20px,3vw,40px);box-shadow:var(--shadow)}
+@media(min-width:900px){.p-sim{grid-template-columns:1.5fr 1fr;gap:40px}}
+.p-sim__parts{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+@media(min-width:640px){.p-sim__parts{grid-template-columns:repeat(4,1fr)}}
+.p-sim__parts label{cursor:pointer}
+.p-sim__parts input{position:absolute;opacity:0}
+.p-sim__parts span{display:block;height:100%;padding:14px;border:1px solid var(--c-line);border-radius:var(--radius);line-height:1.5;transition:.2s}
+.p-sim__parts span b{display:block;font-weight:700}
+.p-sim__parts span small{font-size:12px;color:var(--c-muted)}
+.p-sim__parts input:checked+span{border-color:var(--c-main);background:var(--c-bg-alt);box-shadow:inset 0 0 0 1px var(--c-main)}
+.p-sim__parts input:focus-visible+span{outline:2px solid var(--c-accent);outline-offset:2px}
+.p-sim__total{background:var(--c-dark);color:#fff;border-radius:var(--radius-lg);padding:28px;display:flex;flex-direction:column;justify-content:center;gap:8px}
+.p-sim__row{display:flex;justify-content:space-between;font-size:14px;opacity:.85}
+.p-sim__sum{font-family:var(--f-en);font-size:clamp(40px,5vw,56px);font-weight:300;line-height:1.1}
+.p-sim__sum small{font-family:var(--f-body);font-size:14px;margin-left:4px}
+.p-sim__hint{font-size:13px;min-height:1.8em;color:#bfe0f5}
+.p-merit{display:grid;gap:24px}
+@media(min-width:768px){.p-merit{grid-template-columns:1fr 1fr}}
+.p-merit .c-box ul{color:var(--c-text)}

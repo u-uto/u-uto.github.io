@@ -1,0 +1,45 @@
+/* =====================================================================
+   NUANCE(化粧品・ファンデーション)— テーマ設定
+   ===================================================================== */
+:root{
+  --c-bg:#ffffff;
+  --c-bg-alt:#f6f5f3;
+  --c-surface:#ffffff;
+  --c-text:#363130;
+  --c-muted:#7a726d;
+  --c-line:#e8e4df;
+  --c-main:#363130;
+  --c-on-main:#ffffff;
+  --c-accent:#a5584a;
+  --c-dark:#2f2a28;
+  --c-on-dark:#ffffff;
+  --c-cta:#a5584a;
+  --c-on-cta:#ffffff;
+
+  --f-body:"Noto Sans JP","Hiragino Sans","Yu Gothic",sans-serif;
+  --f-head:"Zen Old Mincho","Yu Mincho",serif;
+  --f-en:"Cormorant Garamond",serif;
+  --en-transform:uppercase;
+  --en-size:clamp(30px,4.4vw,52px);
+  --head-weight:600;
+  --ls-head:.14em;
+
+  --radius:0;
+  --radius-lg:0;
+  --radius-btn:0;
+  --cta-overlay:rgba(30,26,25,.35);
+}
+/* --- このLPだけの調整 --- */
+.p-shade{display:grid;gap:32px;align-items:center}
+@media(min-width:900px){.p-shade{grid-template-columns:1fr 1fr;gap:64px}}
+.p-shade__form fieldset{border:0;padding:0;margin:0 0 28px}
+.p-shade__form legend{font-weight:500;margin-bottom:12px}
+.p-shade__result{background:var(--c-bg-alt);padding:40px 32px;text-align:center}
+.p-shade__chip{width:120px;aspect-ratio:1;border-radius:50%;margin:0 auto 20px;border:6px solid #fff;box-shadow:var(--shadow);transition:background .4s}
+.p-shade__name{font-family:var(--f-head);font-size:22px;letter-spacing:.1em}
+.p-shade__desc{font-size:14px;color:var(--c-muted);margin-top:8px}
+.p-spec{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--c-line);border-bottom:1px solid var(--c-line);margin-top:40px}
+.p-spec div{padding:24px 8px;text-align:center}
+.p-spec div+div{border-left:1px solid var(--c-line)}
+.p-spec b{display:block;font-family:var(--f-en);font-size:clamp(22px,3vw,30px);font-weight:400;color:var(--c-accent);line-height:1.3}
+.p-spec span{font-size:12px;color:var(--c-muted)}

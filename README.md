@@ -19,32 +19,24 @@ LP(ランディングページ)制作のポートフォリオサイトです。G
 
 ```
 .
-├── index.html            # ポートフォリオのトップ
-├── 404.html              # GitHub Pages 用の404ページ
-├── favicon.svg
-├── robots.txt
-├── sitemap.xml
-├── .nojekyll             # Jekyll処理を無効化
-├── assets/
-│   └── css/style.css     # トップ・一覧・404の共通スタイル
+├── index.html              # ポートフォリオのトップ
+├── 404.html                # GitHub Pages 用の404ページ
+├── favicon.svg / robots.txt / sitemap.xml / .nojekyll
+├── assets/css/style.css    # トップ・一覧・404の共通スタイル
 └── lp/
+    ├── README.md           # ★ LPの更新・新規作成ガイド
+    ├── assets/             # 全LP共通のCSS・JS
+    ├── _templates/basic/   # 新規LPのひな形
     └── beauty/
-        ├── index.html    # 美容LPの一覧
-        ├── salon/
-        ├── cosmetics/
-        ├── skincare/
-        ├── supplement/
-        ├── hair-removal/
-        └── diet/
+        ├── index.html      # 美容LPの一覧
+        └── salon/ cosmetics/ skincare/ supplement/ hair-removal/ diet/
+            ├── index.html  # 文章・構成
+            ├── theme.css   # 色・フォント
+            ├── script.js   # LP固有の動き(ある場合)
+            └── images/     # 画像(README.md に推奨サイズ)
 ```
 
-各LPは `index.html` 1ファイルで完結しています(CSS・JSはインライン、外部依存は Google Fonts のみ)。
-
-## 新しいLPを追加するとき
-
-1. `lp/<ジャンル>/<業態>/index.html` を作成
-2. `lp/<ジャンル>/index.html` とトップの `index.html` にカードを追加
-3. `sitemap.xml` にURLを追加
+文章の差し替え・画像の差し替え・新しいLPの追加方法は [`lp/README.md`](lp/README.md) を参照してください。
 
 ## ローカルで確認
 

@@ -37,39 +37,19 @@ h1,h2,h3{line-height:1.4;font-weight:700}
 .works{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:24px;list-style:none;padding:0}
 .work{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;transition:transform .2s,box-shadow .2s}
 .work:hover{transform:translateY(-4px);box-shadow:0 14px 32px rgba(0,0,0,.08)}
-.work a.cover{display:block;text-decoration:none}
-.thumb{aspect-ratio:16/10;display:flex;flex-direction:column;justify-content:flex-end;padding:20px;position:relative;overflow:hidden}
-.thumb .brand{font-size:22px;font-weight:700;letter-spacing:.12em;position:relative}
-.thumb .copy{font-size:13px;opacity:.85;position:relative}
-.thumb::before,.thumb::after{content:"";position:absolute;border-radius:50%}
+.thumb{position:relative;aspect-ratio:16/10;overflow:hidden;background:var(--line)}
+.thumb img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+.work:hover .thumb img{transform:scale(1.04)}
+.thumb .brand{position:absolute;left:16px;bottom:12px;z-index:1;font-size:13px;font-weight:700;letter-spacing:.16em;background:rgba(255,255,255,.9);padding:4px 12px;border-radius:999px;color:var(--ink)}
 .work .body{padding:20px;display:flex;flex-direction:column;gap:8px;flex:1}
+.work .genre{font-family:var(--en);font-size:12px;letter-spacing:.16em;color:var(--muted);text-transform:uppercase}
 .work h3{font-size:17px}
 .work h3 a{text-decoration:none}
-.work h3 a:hover{text-decoration:underline}
+.work h3 a::after{content:"";position:absolute;inset:0}
+.work{position:relative}
 .work p{font-size:14px;color:var(--muted)}
 .tags{display:flex;flex-wrap:wrap;gap:6px;list-style:none;padding:0;margin-top:auto;padding-top:8px}
 .tags li{font-size:12px;background:var(--bg);border-radius:999px;padding:2px 10px;color:var(--muted)}
-
-/* per-work thumbnail palettes, mirroring each LP */
-.t-salon{background:linear-gradient(180deg,#f0dfe0,#fbf8f6);color:#33243a}
-.t-salon::before{width:120px;height:120px;right:-20px;top:-20px;background:#cfd8c9}
-.t-salon::after{width:60px;height:60px;right:70px;top:50px;background:#5b3d63;opacity:.85}
-.t-cosmetics{background:#efe3d6;color:#2e2420}
-.t-cosmetics::before{width:140px;height:140px;right:-10px;top:-30px;background:radial-gradient(circle at 35% 30%,#fff,#cdb39f)}
-.t-cosmetics::after{width:36px;height:36px;right:24px;top:110px;background:#c47a5a;border:3px solid #fff}
-.t-skincare{background:linear-gradient(170deg,#e6f1f3,#fbfdfd);color:#1f3140}
-.t-skincare::before{width:150px;height:150px;right:-30px;top:-40px;border:1px solid #8fc1cf}
-.t-skincare::after{width:90px;height:90px;right:0;top:-10px;border:1px solid #2f5a73}
-.t-supplement{background:radial-gradient(ellipse at 80% 0%,#3a4682,#1d2547 60%);color:#fff}
-.t-supplement::before{width:90px;height:90px;right:30px;top:24px;background:radial-gradient(circle at 35% 35%,#fff6d8,#f4d27a);box-shadow:0 0 40px rgba(244,210,122,.4)}
-.t-hair{background:#effaf7;color:#1e3532}
-.t-hair::before{width:180px;height:180px;right:-50px;top:-60px;background:#bfe7df}
-.t-hair::after{width:40px;height:40px;right:40px;top:90px;background:#ffb59e}
-.t-diet{background:#141414;color:#fff}
-.t-diet::before{width:0;height:0}
-.t-diet .bars{position:absolute;right:20px;bottom:0;display:flex;gap:6px;align-items:flex-end;height:70%}
-.t-diet .bars i{width:18px;background:#232323}
-.t-diet .bars i:last-child{background:#ff5a3c}
 
 .category{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:28px;display:grid;grid-template-columns:1fr auto;gap:16px;align-items:center;text-decoration:none;transition:box-shadow .2s}
 .category:hover{box-shadow:0 10px 24px rgba(0,0,0,.06)}

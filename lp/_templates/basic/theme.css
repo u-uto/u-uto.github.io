@@ -1,0 +1,37 @@
+/* =====================================================================
+   テーマ設定(新しいLPを作るときは、まずここを案件の色・フォントに変更)
+   ---------------------------------------------------------------------
+   使える変数の一覧と初期値は ../../assets/css/lp-base.css の :root を参照。
+   ここに書いた値だけが上書きされます。
+   ===================================================================== */
+:root{
+  /* 色 */
+  --c-bg:#fbfaf8;        /* ページ背景 */
+  --c-bg-alt:#f2f0ec;    /* 交互セクションの背景 */
+  --c-surface:#ffffff;   /* カード背景 */
+  --c-text:#2f2c29;      /* 本文 */
+  --c-muted:#76716b;     /* 補足文 */
+  --c-line:#e5e1db;      /* 罫線 */
+  --c-main:#2f2c29;      /* ボタン・強調 */
+  --c-on-main:#ffffff;   /* --c-main の上の文字色 */
+  --c-accent:#a08a6a;    /* 英字見出し・番号 */
+  --c-dark:#2f2c29;      /* 濃色セクション */
+  --c-on-dark:#ffffff;
+
+  /* フォント(index.html の Google Fonts 読み込みも合わせて変更) */
+  --f-body:"Noto Sans JP","Hiragino Sans","Yu Gothic",sans-serif;
+  --f-head:"Noto Serif JP","Yu Mincho",serif;
+  --f-en:"Cormorant Garamond",serif;
+  --en-style:normal;          /* italic にすると英字見出しが斜体に */
+  --en-transform:none;        /* uppercase で英字見出しを大文字に */
+
+  /* 角丸(0 にするとシャープ、大きくすると柔らかい印象) */
+  --radius:4px;
+  --radius-lg:8px;
+  --radius-btn:999px;
+
+  /* ヒーロー(全面画像タイプ)の文字色と、画像に重ねるグラデーション */
+  --hero-text:#ffffff;
+  --hero-overlay:linear-gradient(90deg,rgba(0,0,0,.5),rgba(0,0,0,0) 65%);
+  --cta-overlay:rgba(0,0,0,.4);
+}

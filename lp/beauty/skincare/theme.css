@@ -1,0 +1,41 @@
+/* =====================================================================
+   MINAMO(スキンケア・保湿美容液)— テーマ設定
+   ===================================================================== */
+:root{
+  --c-bg:#fafaf6;
+  --c-bg-alt:#eef1ea;
+  --c-surface:#ffffff;
+  --c-text:#2f3b33;
+  --c-muted:#6b776e;
+  --c-line:#dfe5da;
+  --c-main:#3f5a4a;
+  --c-on-main:#ffffff;
+  --c-accent:#8ea489;
+  --c-dark:#3f5a4a;
+  --c-on-dark:#ffffff;
+
+  --f-body:"Noto Sans JP","Hiragino Sans","Yu Gothic",sans-serif;
+  --f-head:"Noto Serif JP","Yu Mincho",serif;
+  --f-en:"Marcellus",serif;
+  --en-size:clamp(34px,5vw,64px);
+
+  --radius:8px;
+  --radius-lg:20px;
+  --radius-btn:999px;
+  --cta-overlay:rgba(36,54,44,.25);
+}
+/* --- このLPだけの調整 --- */
+.p-ing{display:grid;gap:32px 24px;grid-template-columns:repeat(2,1fr)}
+@media(min-width:900px){.p-ing{grid-template-columns:repeat(4,1fr)}}
+.p-ing .c-media{width:min(180px,80%);margin:0 auto 20px}
+.p-ing h3{font-size:16px;text-align:center}
+.p-ing p{font-size:13px;color:var(--c-muted);text-align:center;margin-top:6px;line-height:1.8}
+.p-free{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-top:48px}
+.p-free li{font-size:12px;padding:6px 16px;border:1px solid var(--c-main);color:var(--c-main);border-radius:999px;line-height:1.5}
+.p-routine{display:grid;gap:32px;align-items:center;background:var(--c-surface);border-radius:var(--radius-lg);padding:clamp(20px,3vw,40px)}
+@media(min-width:900px){.p-routine{grid-template-columns:1fr 1fr;gap:56px}}
+.p-routine ol{display:grid;gap:20px;counter-reset:r}
+.p-routine li{counter-increment:r;display:grid;grid-template-columns:40px 1fr;gap:12px;line-height:1.8}
+.p-routine li::before{content:counter(r);width:32px;height:32px;border-radius:50%;background:var(--c-bg-alt);color:var(--c-main);display:grid;place-items:center;font-family:var(--f-en)}
+.p-routine strong{display:block;font-family:var(--f-head);font-weight:500}
+.p-routine li span{font-size:14px;color:var(--c-muted)}

@@ -1,369 +1,330 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
+<!--
+  =====================================================================
+  STEP(ダイエット・パーソナルジム)LP
+  ---------------------------------------------------------------------
+  ・文章の差し替え …… 各セクションの「▼ 」コメント内を書き換え
+  ・画像の差し替え …… images/ フォルダ(一覧と推奨サイズは images/README.md)
+  ・色 / フォント …… theme.css
+  ・目標ペース計算の設定 …… script.js(PACE / WARN_RATIO)
+  =====================================================================
+-->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>パーソナルジム STEP | 無料カウンセリング・体験 0円</title>
+<meta name="description" content="食事制限に頼りすぎない、続けられるダイエットを。週2回のトレーニングと食事サポートの2か月プログラム。無料カウンセリング受付中。">
+<meta property="og:title" content="パーソナルジム STEP">
+<meta property="og:image" content="images/hero.svg">
 <link rel="icon" href="../../../favicon.svg" type="image/svg+xml">
-<meta name="description" content="食事制限に頼りすぎない、続けられるダイエットを。トレーニングと食事サポートの2か月プログラム。無料カウンセリング受付中。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
-<style>
-:root{
-  --black:#141414; --char:#232323; --coral:#ff5a3c; --lime:#d8f36a; --off:#f6f5f1; --white:#fff; --line:#e2e0d8; --muted:#5f5f5a;
-  --en:"Oswald",sans-serif;
-  --sans:"Noto Sans JP","Hiragino Sans","Yu Gothic",sans-serif;
-}
-*{box-sizing:border-box;margin:0}
-html{scroll-behavior:smooth}
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
-body{font-family:var(--sans);color:var(--black);background:var(--off);line-height:1.85;font-size:16px;padding-bottom:72px}
-a{color:inherit}
-:focus-visible{outline:3px solid var(--coral);outline-offset:3px}
-.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
-h1,h2,h3{font-weight:900;line-height:1.4}
-h2{font-size:clamp(26px,4.4vw,38px);margin-bottom:12px}
-.en{font-family:var(--en);font-weight:700;font-size:15px;letter-spacing:.2em;color:var(--coral);display:block;margin-bottom:4px}
-.lead{max-width:34em;color:var(--muted)}
-section{padding:88px 0}
-.note{font-size:12px;color:var(--muted);margin-top:12px}
-
-header{position:sticky;top:0;z-index:10;background:var(--black);color:#fff}
-header .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
-.logo{font-family:var(--en);font-weight:700;font-size:28px;letter-spacing:.08em;text-decoration:none}
-.logo span{color:var(--coral)}
-header nav{display:flex;gap:24px;font-size:14px;align-items:center}
-header nav a{text-decoration:none;color:#ccc}
-header nav a:hover{color:#fff}
-header nav .btn{padding:8px 20px;font-size:14px;color:#fff}
-@media(max-width:820px){header nav{display:none}}
-
-.btn{display:inline-block;background:var(--coral);color:#fff;text-decoration:none;padding:18px 40px;font-weight:900;letter-spacing:.04em;transition:transform .15s,background .2s;clip-path:polygon(0 0,100% 0,96% 100%,0 100%)}
-.btn:hover{background:#e8431f;transform:translateX(3px)}
-.btn.ghost{background:transparent;color:inherit;border:2px solid currentColor;clip-path:none}
-.btn.ghost:hover{background:rgba(255,255,255,.08);transform:none}
-
-/* hero */
-.hero{background:var(--black);color:#fff;padding:64px 0 0;overflow:hidden}
-.hero .wrap{display:grid;grid-template-columns:1.2fr .8fr;gap:32px;align-items:end}
-.hero .tag{display:inline-block;background:var(--lime);color:var(--black);font-weight:900;font-size:14px;padding:4px 12px;margin-bottom:20px}
-.hero h1{font-size:clamp(36px,7vw,72px);line-height:1.2;margin-bottom:24px}
-.hero h1 em{font-style:normal;color:var(--coral)}
-.hero p{max-width:30em;color:#cfcfcf;margin-bottom:28px}
-.hero .cta{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:40px}
-.offer{display:flex;gap:0;margin-bottom:28px;flex-wrap:wrap}
-.offer div{border:2px solid #3a3a3a;padding:12px 20px;line-height:1.3}
-.offer div+div{border-left:0}
-.offer small{display:block;font-size:12px;color:#aaa}
-.offer b{font-family:var(--en);font-size:30px;color:var(--lime)}
-.figure{position:relative;height:440px}
-.figure .bar{position:absolute;bottom:0;width:22%;background:var(--char);transform-origin:bottom;animation:grow 1.2s cubic-bezier(.2,.7,.2,1) both}
-.figure .bar:nth-child(1){left:0;height:40%}
-.figure .bar:nth-child(2){left:26%;height:58%;animation-delay:.1s}
-.figure .bar:nth-child(3){left:52%;height:76%;animation-delay:.2s}
-.figure .bar:nth-child(4){left:78%;height:94%;background:var(--coral);animation-delay:.3s}
-@keyframes grow{from{transform:scaleY(0)}}
-.figure .label{position:absolute;right:0;top:0;font-family:var(--en);font-size:15px;letter-spacing:.15em;color:#888;text-align:right}
-.figure .label b{display:block;font-size:56px;color:#fff;line-height:1}
-@media(max-width:820px){.hero .wrap{grid-template-columns:1fr}.figure{height:200px}.figure .label b{font-size:36px}}
-
-/* marquee */
-.marquee{background:var(--lime);overflow:hidden;white-space:nowrap;padding:12px 0;font-family:var(--en);font-weight:700;font-size:18px;letter-spacing:.1em}
-.marquee span{display:inline-block;animation:scroll 24s linear infinite;padding-right:2em}
-@keyframes scroll{to{transform:translateX(-100%)}}
-
-/* worries */
-.worries ul{list-style:none;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin-top:32px}
-.worries li{background:var(--white);padding:20px 22px;font-weight:700;border-left:6px solid var(--black)}
-.worries .answer{margin-top:40px;background:var(--black);color:#fff;padding:28px 32px;font-size:clamp(18px,2.6vw,24px);font-weight:900}
-.worries .answer em{font-style:normal;color:var(--lime)}
-
-/* method */
-.method{background:var(--white)}
-.method .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2px;margin-top:40px;background:var(--line)}
-.method article{background:var(--white);padding:36px 32px}
-.method .n{font-family:var(--en);font-weight:700;font-size:64px;line-height:1;color:var(--off);-webkit-text-stroke:2px var(--black)}
-.method h3{font-size:22px;margin:12px 0 8px}
-.method p{font-size:15px;color:var(--muted)}
-
-/* calculator */
-.calc{background:var(--char);color:#fff}
-.calc .lead{color:#bbb}
-.calc .box{display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-top:32px;background:#3a3a3a}
-@media(max-width:760px){.calc .box{grid-template-columns:1fr}}
-.calc .in,.calc .outbox{background:var(--black);padding:32px}
-.calc label{display:block;font-weight:700;margin-bottom:20px}
-.calc .field{display:flex;align-items:center;gap:8px;margin-top:6px}
-.calc input[type=number]{width:120px;font:inherit;font-family:var(--en);font-size:28px;background:transparent;color:#fff;border:0;border-bottom:2px solid #555;padding:4px 0}
-.calc input[type=number]:focus{outline:none;border-color:var(--lime)}
-.calc .outbox{display:flex;flex-direction:column;justify-content:center}
-.calc .big{font-family:var(--en);font-weight:700;font-size:64px;color:var(--lime);line-height:1}
-.calc .big small{font-family:var(--sans);font-size:18px;color:#fff}
-.calc .sub{color:#bbb;font-size:14px;margin-top:8px}
-.calc .warn{color:var(--coral);font-size:14px;font-weight:700;margin-top:8px;min-height:1.8em}
-
-/* results */
-.results .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px;margin-top:40px}
-.case{background:var(--white);padding:28px}
-.case .who{font-size:14px;color:var(--muted)}
-.case .nums{display:flex;align-items:baseline;gap:12px;margin:12px 0;font-family:var(--en);font-weight:700}
-.case .nums .from{font-size:24px;color:#999}
-.case .nums .arrow{color:var(--coral)}
-.case .nums .to{font-size:40px}
-.case .nums small{font-size:14px;font-family:var(--sans)}
-.case .meta{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
-.case .meta span{background:var(--off);font-size:12px;padding:2px 10px;font-weight:700}
-.case blockquote{font-size:15px;color:var(--muted)}
-.disclaimer{background:var(--white);border:2px solid var(--black);padding:16px 20px;margin-top:24px;font-size:13px}
-
-/* price */
-.price{background:var(--white)}
-.price table{width:100%;border-collapse:collapse;margin-top:32px}
-.price th,.price td{padding:20px;border-bottom:1px solid var(--line);text-align:left;vertical-align:middle}
-.price thead th{background:var(--black);color:#fff;font-size:14px}
-.price tbody th{font-size:18px;font-weight:900}
-.price tbody th small{display:block;font-size:13px;font-weight:500;color:var(--muted)}
-.price .yen{font-family:var(--en);font-weight:700;font-size:28px;white-space:nowrap}
-.price .yen small{font-family:var(--sans);font-size:13px;font-weight:500}
-.price tr.rec{background:#fff4f1}
-.price tr.rec th::before{content:"おすすめ";display:inline-block;background:var(--coral);color:#fff;font-size:11px;padding:0 8px;margin-right:8px;vertical-align:middle}
-.guarantee{display:flex;gap:20px;align-items:center;background:var(--lime);padding:24px 28px;margin-top:32px}
-.guarantee .seal{flex:none;width:84px;height:84px;border-radius:50%;background:var(--black);color:var(--lime);display:grid;place-items:center;text-align:center;font-weight:900;font-size:13px;line-height:1.3}
-.guarantee p{font-size:14px}
-@media(max-width:640px){.price th,.price td{display:block;padding:8px 16px;border:0}.price tbody tr{display:block;border-bottom:1px solid var(--line);padding:12px 0}.price thead{display:none}}
-
-/* flow */
-.flow ol{list-style:none;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:2px;margin-top:32px;counter-reset:s;background:var(--line)}
-.flow li{counter-increment:s;background:var(--off);padding:24px}
-.flow li::before{content:"STEP " counter(s);font-family:var(--en);font-weight:700;color:var(--coral);letter-spacing:.1em}
-.flow strong{display:block;font-size:18px;margin:4px 0}
-.flow li span{font-size:14px;color:var(--muted)}
-
-/* faq */
-.faq{background:var(--white)}
-.faq details{border-bottom:2px solid var(--black);padding:18px 0;max-width:760px}
-.faq summary{cursor:pointer;font-weight:900;list-style:none;display:flex;justify-content:space-between;gap:16px}
-.faq summary::-webkit-details-marker{display:none}
-.faq summary::after{content:"+";font-family:var(--en);font-size:26px;line-height:1;color:var(--coral)}
-.faq details[open] summary::after{content:"−"}
-.faq details p{margin-top:12px;color:var(--muted);font-size:15px}
-
-.final{background:var(--coral);color:#fff;text-align:center}
-.final h2{font-size:clamp(28px,5vw,44px)}
-.final p{margin:0 auto 32px;max-width:30em}
-.final .btn{background:var(--black)}
-.final .btn:hover{background:#000}
-
-footer{padding:40px 0;font-size:13px;color:var(--muted);text-align:center}
-footer p+p{margin-top:6px}
-
-.sticky{position:fixed;left:0;right:0;bottom:0;z-index:20;background:var(--black);padding:10px 16px;display:none}
-.sticky .btn{display:block;text-align:center;padding:14px;clip-path:none}
-@media(max-width:820px){.sticky{display:block}}
-</style>
+<link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@500;800&family=Montserrat:wght@600;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/css/lp-base.css">
+<link rel="stylesheet" href="theme.css">
+<script>document.documentElement.classList.add("js")</script>
 </head>
 <body>
 
-<header>
-  <div class="wrap">
-    <a class="logo" href="#top">STEP<span>.</span></a>
-    <nav aria-label="ページ内メニュー">
-      <a href="#method">メソッド</a>
-      <a href="#calc">目標シミュレーター</a>
-      <a href="#results">実績</a>
-      <a href="#price">料金</a>
-      <a href="#faq">FAQ</a>
-      <a class="btn" href="#counsel">無料カウンセリング</a>
+<!-- ▼ ヘッダー ========================================================= -->
+<header class="l-header">
+  <div class="l-wrap l-header__inner">
+    <a class="l-header__logo" href="#top" style="font-family:var(--f-en);font-weight:700;letter-spacing:.08em">STEP<span style="color:var(--c-main)">.</span></a>
+    <button class="l-header__toggle" type="button" aria-label="メニューを開く" aria-expanded="false" aria-controls="nav"><span></span><span></span><span></span></button>
+    <nav class="l-nav" id="nav" aria-label="ページ内メニュー">
+      <ul class="l-nav__list">
+        <li><a href="#method"><span>Method</span>メソッド</a></li>
+        <li><a href="#calc"><span>Simulator</span>目標ペース</a></li>
+        <li><a href="#results"><span>Results</span>会員さまの変化</a></li>
+        <li><a href="#price"><span>Price</span>料金</a></li>
+        <li><a href="#studio"><span>Studio</span>スタジオ</a></li>
+      </ul>
+      <a class="c-btn" href="#counsel">無料カウンセリング</a>
     </nav>
   </div>
 </header>
 
 <main id="top">
-  <section class="hero">
-    <div class="wrap">
-      <div>
-        <span class="tag">2か月 集中プログラム(サンプル)</span>
-        <h1>我慢より、<br><em>続け方</em>を<br>身につける。</h1>
-        <p>週2回のトレーニングと、毎日の食事サポート。極端な糖質制限ではなく、プログラム終了後も自分で続けられる習慣づくりを目指します。</p>
-        <div class="offer">
-          <div><small>カウンセリング+体験</small><b>0円</b></div>
-          <div><small>入会金(今月申込)</small><b>0円</b></div>
-          <div><small>30日間</small><b>返金保証</b></div>
-        </div>
-        <div class="cta">
-          <a class="btn" href="#counsel">無料カウンセリングを予約</a>
-          <a class="btn ghost" href="#calc">目標ペースを計算する</a>
-        </div>
+
+  <!-- ▼ ヒーロー(画像: images/hero.svg)================================ -->
+  <section class="p-hero p-hero--full">
+    <div class="p-hero__bg"><img src="images/hero.svg" alt="" width="1600" height="1000" fetchpriority="high"></div>
+    <div class="l-wrap p-hero__inner">
+      <span class="p-hero__en" data-reveal>2-Month Body Program</span>
+      <h1 class="p-hero__title" data-reveal>我慢より、<br><em>続け方</em>を<br>身につける。</h1>
+      <p class="p-hero__text" data-reveal>週2回のトレーニングと、毎日の食事サポート。極端な糖質制限ではなく、プログラム終了後も自分で続けられる習慣づくりを目指します。</p>
+      <ul class="p-hero__points" data-reveal><li>カウンセリング・体験 0円</li><li>今月の入会金 0円</li><li>30日間 返金保証</li></ul>
+      <div class="c-btn-group" data-reveal>
+        <a class="c-btn" href="#counsel">無料カウンセリングを予約</a>
+        <a class="c-btn c-btn--ghost" href="#calc">目標ペースを計算する</a>
       </div>
-      <figure class="figure" role="img" aria-label="習慣が積み上がっていくイメージ(サンプル)">
-        <div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div>
-        <div class="label">WEEK<b>1→8</b></div>
-      </figure>
     </div>
   </section>
-  <div class="marquee" aria-hidden="true"><span>TRAIN 2×/WEEK — EAT WELL — SLEEP — REPEAT — TRAIN 2×/WEEK — EAT WELL — SLEEP — REPEAT —</span><span>TRAIN 2×/WEEK — EAT WELL — SLEEP — REPEAT — TRAIN 2×/WEEK — EAT WELL — SLEEP — REPEAT —</span></div>
+  <div class="c-marquee" aria-hidden="true"><span>Train 2×/week ・ Eat well ・ Sleep well ・ Keep going ・ Train 2×/week ・ Eat well ・ Sleep well ・ Keep going ・</span><span>Train 2×/week ・ Eat well ・ Sleep well ・ Keep going ・ Train 2×/week ・ Eat well ・ Sleep well ・ Keep going ・</span></div>
 
-  <section class="worries">
-    <div class="wrap">
-      <span class="en">PROBLEM</span>
-      <h2>こんな経験、ありませんか</h2>
-      <ul>
-        <li>食事を抜くダイエットで、すぐリバウンドした</li>
-        <li>ジムに入会したけど、何をすればいいか分からず行かなくなった</li>
-        <li>一人だとつい自分に甘くなってしまう</li>
+  <!-- ▼ お悩み ======================================================= -->
+  <section class="l-sec p-worry">
+    <div class="l-wrap">
+      <div class="c-sec-head c-sec-head--center" data-reveal>
+        <span class="c-sec-head__en">Problem</span>
+        <h2 class="c-sec-head__ja">こんな経験、ありませんか</h2>
+      </div>
+      <ul class="p-worry__list" data-reveal>
+        <li>食事を抜くダイエットで、すぐ元に戻ってしまった</li>
+        <li>ジムに入会したけれど、何をすればいいか分からなかった</li>
+        <li>一人だと、つい自分に甘くなってしまう</li>
         <li>体重は減っても、引き締まった感じがしない</li>
       </ul>
-      <p class="answer">必要なのは強い意志ではなく、<em>続けられる仕組み</em>です。</p>
-    </div>
-  </section>
-
-  <section class="method" id="method">
-    <div class="wrap">
-      <span class="en">METHOD</span>
-      <h2>STEPの3つのメソッド</h2>
-      <p class="lead">トレーナーが、あなたの生活に合わせて設計します。</p>
-      <div class="grid">
-        <article><div class="n">01</div><h3>週2回・50分のトレーニング</h3><p>体力や関節の状態をチェックしたうえで、無理のないメニューを組みます。筋肉量を保ちながら体を引き締めます。</p></article>
-        <article><div class="n">02</div><h3>写真を送るだけの食事サポート</h3><p>毎食の写真をアプリで送ると、管理栄養士資格を持つスタッフがアドバイス。コンビニや外食の選び方も一緒に考えます。</p></article>
-        <article><div class="n">03</div><h3>卒業後の「ひとりプラン」</h3><p>プログラム終了時に、自宅でできるトレーニングと食事の目安をまとめてお渡しします。</p></article>
+      <div class="p-worry__answer" data-reveal>
+        <p class="c-catch">必要なのは強い意志より、<br class="u-sp">続けられる仕組みです。</p>
       </div>
     </div>
   </section>
 
-  <section class="calc" id="calc">
-    <div class="wrap">
-      <span class="en">SIMULATOR</span>
-      <h2>無理のない目標ペースを計算</h2>
-      <p class="lead">体への負担を考え、1か月あたり現在の体重の3%を目安に、目標達成までの期間を計算します。</p>
-      <form class="box" id="calcForm" onsubmit="return false">
-        <div class="in">
-          <label for="now">現在の体重
-            <span class="field"><input id="now" type="number" inputmode="decimal" min="30" max="200" step="0.1" value="62"> kg</span>
-          </label>
-          <label for="goal">目標の体重
-            <span class="field"><input id="goal" type="number" inputmode="decimal" min="30" max="200" step="0.1" value="56"> kg</span>
-          </label>
-        </div>
-        <div class="outbox" aria-live="polite">
-          <span>目標までの目安期間</span>
-          <div class="big"><span id="months">-</span><small> か月</small></div>
-          <p class="sub" id="pace"></p>
-          <p class="warn" id="warn"></p>
-        </div>
-      </form>
-      <p class="note" style="color:#999">※一般的な目安であり、医学的なアドバイスではありません。持病のある方や妊娠中の方は、医師にご相談ください。</p>
+  <!-- ▼ メソッド(画像: images/method-01〜03)========================= -->
+  <section class="l-sec l-sec--alt" id="method">
+    <div class="l-wrap">
+      <div class="c-sec-head" data-reveal>
+        <span class="c-sec-head__en">Method</span>
+        <h2 class="c-sec-head__ja">STEPの3つのメソッド</h2>
+      </div>
+      <div class="p-rows">
+        <article class="c-row" data-reveal>
+          <figure class="c-row__media c-media" style="--ratio:4/3"><img src="images/method-01.svg" alt="" width="1200" height="900" loading="lazy"></figure>
+          <div class="c-row__body">
+            <div class="c-row__head"><span class="c-num">01</span><small>Training</small></div>
+            <h3 class="c-row__title">週2回・50分のトレーニング</h3>
+            <p>体力や関節の状態を確認したうえで、無理のないメニューを組みます。筋肉量を保ちながら、体を引き締めることを目指します。</p>
+          </div>
+        </article>
+        <article class="c-row" data-reveal>
+          <figure class="c-row__media c-media" style="--ratio:4/3"><img src="images/method-02.svg" alt="" width="1200" height="900" loading="lazy"></figure>
+          <div class="c-row__body">
+            <div class="c-row__head"><span class="c-num">02</span><small>Food</small></div>
+            <h3 class="c-row__title">写真を送るだけの食事サポート</h3>
+            <p>毎食の写真をアプリで送ると、管理栄養士の資格を持つスタッフがアドバイス。コンビニや外食での選び方も一緒に考えます。</p>
+          </div>
+        </article>
+        <article class="c-row" data-reveal>
+          <figure class="c-row__media c-media" style="--ratio:4/3"><img src="images/method-03.svg" alt="" width="1200" height="900" loading="lazy"></figure>
+          <div class="c-row__body">
+            <div class="c-row__head"><span class="c-num">03</span><small>Habit</small></div>
+            <h3 class="c-row__title">卒業後の「ひとりプラン」</h3>
+            <p>プログラム終了時に、自宅でできるトレーニングと食事の目安をまとめてお渡しします。</p>
+          </div>
+        </article>
+      </div>
     </div>
   </section>
 
-  <section class="results" id="results">
-    <div class="wrap">
-      <span class="en">RESULTS</span>
-      <h2>会員さまの変化</h2>
-      <div class="grid">
-        <article class="case">
-          <p class="who">30代・女性・デスクワーク</p>
-          <div class="nums"><span class="from">64.2</span><span class="arrow">→</span><span class="to">59.0<small>kg</small></span></div>
-          <div class="meta"><span>2か月</span><span>週2回</span><span>食事サポート</span></div>
-          <blockquote>食事を「抜く」のではなく「選ぶ」ことを覚えました。卒業後も体重をキープできています。</blockquote>
+  <!-- ▼ 目標ペース計算(設定は script.js)============================= -->
+  <section class="l-sec" id="calc">
+    <div class="l-wrap">
+      <div class="c-sec-head c-sec-head--center" data-reveal>
+        <span class="c-sec-head__en">Simulator</span>
+        <h2 class="c-sec-head__ja">無理のない目標ペースを計算</h2>
+      </div>
+      <p class="c-lead u-center" data-reveal>体への負担を考え、1か月あたり現在の体重の3%を目安に、目標までの期間を計算します。</p>
+      <form class="p-calc u-mt-m" onsubmit="return false" data-reveal>
+        <div>
+          <label for="calcNow">現在の体重<span class="p-calc__field"><input id="calcNow" type="number" inputmode="decimal" min="30" max="200" step="0.1" value="62"> kg</span></label>
+          <label for="calcGoal">目標の体重<span class="p-calc__field"><input id="calcGoal" type="number" inputmode="decimal" min="30" max="200" step="0.1" value="56"> kg</span></label>
+        </div>
+        <div class="p-calc__out" aria-live="polite">
+          <p>目標までの目安期間</p>
+          <p class="p-calc__big"><span id="calcMonths">-</span><small>か月</small></p>
+          <p class="p-calc__pace" id="calcPace"></p>
+          <p class="p-calc__warn" id="calcWarn"></p>
+        </div>
+      </form>
+      <p class="c-note u-center">※一般的な目安であり、医学的なアドバイスではありません。持病のある方・妊娠中の方は医師にご相談ください。</p>
+    </div>
+  </section>
+
+  <!-- ▼ 会員さまの変化(画像: images/case-01〜03)===================== -->
+  <section class="l-sec l-sec--alt" id="results">
+    <div class="l-wrap">
+      <div class="c-sec-head" data-reveal>
+        <span class="c-sec-head__en">Results</span>
+        <h2 class="c-sec-head__ja">会員さまの変化</h2>
+      </div>
+      <div class="c-grid c-grid--3" data-reveal>
+        <article class="p-case">
+          <div class="c-voice__head"><figure class="c-media c-media--circle" style="width:64px"><img src="images/case-01.svg" alt="" width="400" height="400" loading="lazy"></figure><p class="c-voice__who"><b>30代 女性</b>デスクワーク</p></div>
+          <p class="p-case__nums"><span class="from">64.2</span><span class="arrow">→</span><span class="to">59.0<small>kg</small></span></p>
+          <ul class="c-tags"><li>2か月</li><li>週2回</li><li>食事サポート</li></ul>
+          <blockquote>食事を「抜く」のではなく「選ぶ」ことを覚えました。卒業後も自分で続けています。</blockquote>
         </article>
-        <article class="case">
-          <p class="who">40代・男性・営業職</p>
-          <div class="nums"><span class="from">82.5</span><span class="arrow">→</span><span class="to">76.1<small>kg</small></span></div>
-          <div class="meta"><span>2か月</span><span>週2回</span><span>食事サポート</span></div>
+        <article class="p-case">
+          <div class="c-voice__head"><figure class="c-media c-media--circle" style="width:64px"><img src="images/case-02.svg" alt="" width="400" height="400" loading="lazy"></figure><p class="c-voice__who"><b>40代 男性</b>営業職</p></div>
+          <p class="p-case__nums"><span class="from">82.5</span><span class="arrow">→</span><span class="to">76.1<small>kg</small></span></p>
+          <ul class="c-tags"><li>2か月</li><li>週2回</li><li>食事サポート</li></ul>
           <blockquote>外食が多くても続けられる方法を教えてもらえたので、ストレスなく取り組めました。</blockquote>
         </article>
-        <article class="case">
-          <p class="who">20代・女性・販売職</p>
-          <div class="nums"><span class="from">55.8</span><span class="arrow">→</span><span class="to">52.9<small>kg</small></span></div>
-          <div class="meta"><span>2か月</span><span>週2回</span><span>食事サポート</span></div>
+        <article class="p-case">
+          <div class="c-voice__head"><figure class="c-media c-media--circle" style="width:64px"><img src="images/case-03.svg" alt="" width="400" height="400" loading="lazy"></figure><p class="c-voice__who"><b>20代 女性</b>販売職</p></div>
+          <p class="p-case__nums"><span class="from">55.8</span><span class="arrow">→</span><span class="to">52.9<small>kg</small></span></p>
+          <ul class="c-tags"><li>2か月</li><li>週2回</li><li>食事サポート</li></ul>
           <blockquote>体重以上に、姿勢が良くなったと言われるのがうれしいです。</blockquote>
         </article>
       </div>
-      <div class="disclaimer">※サンプル用の架空の事例です。結果には個人差があり、効果を保証するものではありません。上記はいずれも週2回のトレーニングと食事サポートを2か月間継続した場合の例です。</div>
+      <div class="c-box u-mt-m" data-reveal>※サンプル用の架空の事例です。結果には個人差があり、同様の効果を保証するものではありません。上記はいずれも、週2回のトレーニングと食事サポートを2か月間継続した場合の例です。</div>
     </div>
   </section>
 
-  <section class="price" id="price">
-    <div class="wrap">
-      <span class="en">PRICE</span>
-      <h2>料金</h2>
-      <p class="lead">表示はすべて税込。ウェア・シューズ・タオルの無料レンタルつきです。</p>
-      <table>
-        <caption style="position:absolute;left:-9999px">コース別料金</caption>
-        <thead><tr><th scope="col">コース</th><th scope="col">内容</th><th scope="col">料金</th></tr></thead>
-        <tbody>
-          <tr class="rec"><th scope="row">2か月 集中プログラム<small>16回+毎日の食事サポート</small></th><td>1回あたり約12,400円 / 分割 月々8,250円〜(24回)</td><td class="yen">198,000<small>円</small></td></tr>
-          <tr><th scope="row">3か月 習慣化プログラム<small>24回+毎日の食事サポート</small></th><td>1回あたり11,000円 / 分割 月々11,000円〜(24回)</td><td class="yen">264,000<small>円</small></td></tr>
-          <tr><th scope="row">月4回 継続コース<small>卒業生・2回目以降の方</small></th><td>食事サポートはオプション(5,500円/月)</td><td class="yen">33,000<small>円/月</small></td></tr>
-        </tbody>
-      </table>
-      <div class="guarantee">
-        <div class="seal">30日間<br>返金保証</div>
-        <p>入会から30日以内に「続けられない」と感じた場合は、理由を問わず全額返金します。※返金の条件:所定の回数(30日間で8回)のトレーニングに参加していること。</p>
+  <!-- ▼ トレーナー(画像: images/trainer-01〜03)======================= -->
+  <section class="l-sec p-trainer">
+    <div class="l-wrap">
+      <div class="c-sec-head c-sec-head--center" data-reveal>
+        <span class="c-sec-head__en">Trainer</span>
+        <h2 class="c-sec-head__ja">担当トレーナー</h2>
+      </div>
+      <div class="c-grid c-grid--3" data-reveal>
+        <article class="c-card c-card--plain"><figure class="c-media" style="--ratio:1"><img src="images/trainer-01.svg" alt="" width="600" height="600" loading="lazy"></figure><div class="c-card__body"><p class="role">HEAD TRAINER</p><h3 class="c-card__title">佐藤 〇〇</h3><p>運動が苦手な方にも、楽しさを感じてもらえるレッスンを。</p></div></article>
+        <article class="c-card c-card--plain"><figure class="c-media" style="--ratio:1"><img src="images/trainer-02.svg" alt="" width="600" height="600" loading="lazy"></figure><div class="c-card__body"><p class="role">TRAINER</p><h3 class="c-card__title">鈴木 〇〇</h3><p>姿勢や体の使い方から、一緒に見直していきます。</p></div></article>
+        <article class="c-card c-card--plain"><figure class="c-media" style="--ratio:1"><img src="images/trainer-03.svg" alt="" width="600" height="600" loading="lazy"></figure><div class="c-card__body"><p class="role">FOOD ADVISOR</p><h3 class="c-card__title">高橋 〇〇</h3><p>管理栄養士。外食やコンビニの選び方もお任せください。</p></div></article>
       </div>
     </div>
   </section>
 
-  <section class="flow">
-    <div class="wrap">
-      <span class="en">FLOW</span>
-      <h2>ご入会までの流れ</h2>
-      <ol>
-        <li><strong>WEBで予約</strong><span>1分で完了。土日も受付</span></li>
-        <li><strong>無料カウンセリング</strong><span>目標と生活リズムをヒアリング</span></li>
-        <li><strong>体験トレーニング</strong><span>30分・手ぶらでOK</span></li>
-        <li><strong>ご検討・ご入会</strong><span>その場で決めなくて大丈夫です</span></li>
+  <!-- ▼ 料金(画像: images/price-01〜03)============================== -->
+  <section class="l-sec l-sec--alt" id="price">
+    <div class="l-wrap">
+      <div class="c-sec-head c-sec-head--center" data-reveal>
+        <span class="c-sec-head__en">Price</span>
+        <h2 class="c-sec-head__ja">料金</h2>
+      </div>
+      <p class="c-lead u-center" data-reveal>表示はすべて税込。ウェア・シューズ・タオルの無料レンタルつきです。</p>
+      <div class="c-grid c-grid--3 u-mt-l" data-reveal>
+        <article class="c-price is-featured">
+          <span class="c-price__flag">おすすめ</span>
+          <figure class="c-media"><img src="images/price-01.svg" alt="" width="1200" height="750" loading="lazy"></figure>
+          <div class="c-price__body">
+            <h3 class="c-price__name">2か月 集中プログラム</h3>
+            <p class="c-price__desc">16回+毎日の食事サポート</p>
+            <p class="c-price__amount">198,000<small>円</small></p>
+            <p class="c-price__sub">1回あたり約12,400円 / 分割 月々8,250円〜(24回)</p>
+            <ul class="c-price__list"><li>週2回・50分</li><li>食事サポート込み</li><li>卒業時「ひとりプラン」つき</li></ul>
+            <a class="c-btn c-btn--block" href="#counsel">カウンセリング予約</a>
+          </div>
+        </article>
+        <article class="c-price">
+          <figure class="c-media"><img src="images/price-02.svg" alt="" width="1200" height="750" loading="lazy"></figure>
+          <div class="c-price__body">
+            <h3 class="c-price__name">3か月 習慣化プログラム</h3>
+            <p class="c-price__desc">24回+毎日の食事サポート</p>
+            <p class="c-price__amount">264,000<small>円</small></p>
+            <p class="c-price__sub">1回あたり11,000円 / 分割 月々11,000円〜(24回)</p>
+            <ul class="c-price__list"><li>じっくり習慣にしたい方に</li><li>食事サポート込み</li></ul>
+            <a class="c-btn c-btn--ghost c-btn--block" href="#counsel">カウンセリング予約</a>
+          </div>
+        </article>
+        <article class="c-price">
+          <figure class="c-media"><img src="images/price-03.svg" alt="" width="1200" height="750" loading="lazy"></figure>
+          <div class="c-price__body">
+            <h3 class="c-price__name">月4回 継続コース</h3>
+            <p class="c-price__desc">卒業生・2回目以降の方</p>
+            <p class="c-price__amount">33,000<small>円/月</small></p>
+            <p class="c-price__sub">食事サポートはオプション(5,500円/月)</p>
+            <ul class="c-price__list"><li>自分のペースで続けたい方に</li></ul>
+            <a class="c-btn c-btn--ghost c-btn--block" href="#counsel">カウンセリング予約</a>
+          </div>
+        </article>
+      </div>
+      <div class="p-guarantee" data-reveal>
+        <div class="p-guarantee__seal">30日間<br>返金保証</div>
+        <p>入会から30日以内に「続けられない」と感じた場合は、理由を問わず全額返金します。<br><small>※返金の条件:入会後30日間で8回のトレーニングに参加していること。</small></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ▼ 入会までの流れ =============================================== -->
+  <section class="l-sec p-flow">
+    <div class="l-wrap">
+      <div class="c-sec-head c-sec-head--center" data-reveal>
+        <span class="c-sec-head__en">Flow</span>
+        <h2 class="c-sec-head__ja">ご入会までの流れ</h2>
+      </div>
+      <ol class="p-flow__list" data-reveal>
+        <li><span class="p-flow__step">Step</span><h3 class="p-flow__title">WEBで予約</h3><p>1分で完了。土日も受付</p></li>
+        <li><span class="p-flow__step">Step</span><h3 class="p-flow__title">無料カウンセリング</h3><p>目標と生活リズムをヒアリング</p></li>
+        <li><span class="p-flow__step">Step</span><h3 class="p-flow__title">体験トレーニング</h3><p>30分・手ぶらでOK</p></li>
+        <li><span class="p-flow__step">Step</span><h3 class="p-flow__title">ご検討・ご入会</h3><p>その場で決めなくて大丈夫です</p></li>
       </ol>
     </div>
   </section>
 
-  <section class="faq" id="faq">
-    <div class="wrap">
-      <span class="en">FAQ</span>
-      <h2>よくある質問</h2>
-      <details><summary>運動経験がなくても大丈夫ですか?</summary><p>会員さまの約7割が運動未経験からのスタートです。体力に合わせて、負荷を少しずつ上げていきます。</p></details>
-      <details><summary>食事制限は厳しいですか?</summary><p>極端な制限は行いません。主食も適量とりながら、続けられる食べ方を一緒に見つけます。</p></details>
-      <details><summary>カウンセリングで勧誘されませんか?</summary><p>その場での入会をお願いすることはありません。持ち帰ってご検討いただけます。</p></details>
-      <details><summary>途中で解約できますか?</summary><p>はい。未消化分の回数に応じて、所定の計算方法でご返金します。入会から30日以内は返金保証の対象です。</p></details>
+  <!-- ▼ よくある質問 ================================================= -->
+  <section class="l-sec l-sec--alt p-faq" id="faq">
+    <div class="l-wrap">
+      <div class="c-sec-head c-sec-head--center" data-reveal>
+        <span class="c-sec-head__en">Q&amp;A</span>
+        <h2 class="c-sec-head__ja">よくある質問</h2>
+      </div>
+      <div class="p-faq__list" data-reveal>
+        <details class="p-faq__item"><summary>運動経験がなくても大丈夫ですか?</summary><p class="p-faq__a">会員さまの約7割が運動未経験からのスタートです。体力に合わせて、負荷を少しずつ上げていきます。</p></details>
+        <details class="p-faq__item"><summary>食事制限は厳しいですか?</summary><p class="p-faq__a">極端な制限は行いません。主食も適量とりながら、続けられる食べ方を一緒に見つけます。</p></details>
+        <details class="p-faq__item"><summary>カウンセリングで勧誘されませんか?</summary><p class="p-faq__a">その場での入会をお願いすることはありません。持ち帰ってご検討いただけます。</p></details>
+        <details class="p-faq__item"><summary>途中で解約できますか?</summary><p class="p-faq__a">はい。未消化分の回数に応じて、所定の計算方法でご返金します。入会から30日以内は返金保証の対象です。</p></details>
+      </div>
     </div>
   </section>
 
-  <section class="final" id="counsel">
-    <div class="wrap">
-      <h2>まずは、話を聞かせてください。</h2>
-      <p>無料カウンセリングと体験トレーニングで、あなたに合うペースをご提案します。</p>
-      <a class="btn" href="#counsel">無料カウンセリングを予約</a>
+  <!-- ▼ スタジオ情報(画像: images/studio.svg / map.svg)============== -->
+  <section class="l-sec p-info" id="studio">
+    <div class="l-wrap">
+      <div class="c-sec-head" data-reveal>
+        <span class="c-sec-head__en">Studio</span>
+        <h2 class="c-sec-head__ja">スタジオ情報</h2>
+      </div>
+      <div class="p-info__inner" data-reveal>
+        <div>
+          <figure class="c-media" style="--ratio:3/2"><img src="images/studio.svg" alt="" width="1200" height="800" loading="lazy"></figure>
+          <dl class="c-dl u-mt-m">
+            <dt>スタジオ名</dt><dd>STEP 〇〇店(サンプル)</dd>
+            <dt>住所</dt><dd>〒000-0000 〇〇県〇〇市〇〇 1-2-3 〇〇ビル 2F</dd>
+            <dt>アクセス</dt><dd>〇〇駅 南口より徒歩4分</dd>
+            <dt>営業時間</dt><dd>7:00〜22:00</dd>
+            <dt>設備</dt><dd>完全個室・シャワー・パウダールーム</dd>
+          </dl>
+        </div>
+        <!-- Googleマップを使う場合は figure を <iframe> に置き換え -->
+        <figure class="c-media" style="--ratio:1"><img src="images/map.svg" alt="スタジオ周辺の地図" width="1200" height="800" loading="lazy"></figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ▼ 最後のCTA(画像: images/cta.svg)============================= -->
+  <section class="p-cta" id="counsel">
+    <div class="p-cta__bg"><img src="images/cta.svg" alt="" width="1600" height="900" loading="lazy"></div>
+    <div class="l-wrap p-cta__inner" data-reveal>
+      <span class="c-sec-head__en" style="color:#fff">Free Counseling</span>
+      <h2 class="p-cta__title">まずは、話を聞かせてください。</h2>
+      <p>無料カウンセリングと体験トレーニングで、<br class="u-pc">あなたに合うペースをご提案します。</p>
+      <div class="c-btn-group c-btn-group--center">
+        <a class="c-btn c-btn--light c-btn--lg" href="#counsel">無料カウンセリングを予約</a>
+      </div>
     </div>
   </section>
 </main>
 
-<footer>
-  <div class="wrap">
-    <p>パーソナルジム STEP(サンプル)/ 特定商取引法に基づく表記 / プライバシーポリシー</p>
-    <p>このページはポートフォリオ用の架空ジムのLPです。 <a href="../../../">ポートフォリオに戻る</a></p>
+<!-- ▼ フッター ======================================================= -->
+<footer class="l-footer">
+  <div class="l-wrap l-footer__inner">
+    <a class="l-footer__logo" href="#top" style="font-family:var(--f-en);font-weight:700">STEP.</a>
+    <ul class="l-footer__links">
+      <li><a href="#top">特定商取引法に基づく表記</a></li>
+      <li><a href="#top">プライバシーポリシー</a></li>
+      <li><a href="../../../">ポートフォリオに戻る</a></li>
+    </ul>
+    <p>このページはポートフォリオ用の架空ジムのLPです。© <span data-year></span> STEP</p>
   </div>
 </footer>
 
-<div class="sticky"><a class="btn" href="#counsel">無料カウンセリングを予約</a></div>
+<div class="c-sticky"><a class="c-btn" href="#counsel">無料カウンセリングを予約</a></div>
 
-<script>
-// Healthy-pace calculator: target loss of ~3% of current body weight per month
-const now = document.getElementById("now"), goal = document.getElementById("goal");
-const out = { months: document.getElementById("months"), pace: document.getElementById("pace"), warn: document.getElementById("warn") };
-function calc(){
-  const n = parseFloat(now.value), g = parseFloat(goal.value);
-  out.warn.textContent = "";
-  if (!(n > 0 && g > 0)) { out.months.textContent = "-"; out.pace.textContent = "体重を入力してください"; return; }
-  if (g >= n) { out.months.textContent = "-"; out.pace.textContent = "目標体重は現在より低い値を入力してください"; return; }
-  const perMonth = n * 0.03;
-  const months = Math.ceil(((n - g) / perMonth) * 2) / 2; // round up to 0.5 month
-  out.months.textContent = months;
-  out.pace.textContent = `1か月あたり約${perMonth.toFixed(1)}kgのペース(${(n - g).toFixed(1)}kg減)`;
-  if ((n - g) / n > 0.15) out.warn.textContent = "大きな減量はカウンセリングで段階的な目標を一緒に立てましょう。";
-}
-[now, goal].forEach(el => el.addEventListener("input", calc));
-calc();
-</script>
+<script src="../../assets/js/lp-base.js" defer></script>
+<script src="script.js" defer></script>
 </body>
 </html>

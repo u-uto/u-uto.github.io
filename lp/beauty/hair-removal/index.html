@@ -1,363 +1,318 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
+<!--
+  =====================================================================
+  LISSE(脱毛サロン)LP
+  ---------------------------------------------------------------------
+  ・文章の差し替え …… 各セクションの「▼ 」コメント内を書き換え
+  ・画像の差し替え …… images/ フォルダ(一覧と推奨サイズは images/README.md)
+  ・色 / フォント …… theme.css
+  ・部位ごとの料金 …… 料金シミュレーター内の input の value(円)
+  ・全身プランの料金 …… script.js の FULL_BODY_PRICE
+  =====================================================================
+-->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>脱毛サロン LISSE | 全身脱毛 初回体験 500円</title>
+<meta name="description" content="痛みに配慮した冷却光脱毛のサロン。顔・VIOを含む全身脱毛の初回体験は500円。部位ごとの料金シミュレーションもできます。">
+<meta property="og:title" content="脱毛サロン LISSE">
+<meta property="og:image" content="images/hero.svg">
 <link rel="icon" href="../../../favicon.svg" type="image/svg+xml">
-<meta name="description" content="痛みに配慮した光脱毛の脱毛サロン。全身脱毛の初回体験は500円。部位ごとの料金シミュレーションもできます。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;600&family=M+PLUS+1p:wght@400;500;700;800&display=swap" rel="stylesheet">
-<style>
-:root{
-  --ink:#1e3532; --teal:#1f8a7e; --mint:#bfe7df; --ice:#effaf7; --white:#ffffff; --peach:#ffb59e; --line:#d4ebe5; --muted:#56716c;
-  --en:"Josefin Sans",sans-serif;
-  --sans:"M PLUS 1p","Hiragino Sans","Yu Gothic",sans-serif;
-}
-*{box-sizing:border-box;margin:0}
-html{scroll-behavior:smooth}
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
-body{font-family:var(--sans);color:var(--ink);background:var(--white);line-height:1.85;font-size:16px;padding-bottom:72px}
-a{color:inherit}
-:focus-visible{outline:3px solid var(--teal);outline-offset:3px}
-.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
-h1,h2,h3{font-weight:800;line-height:1.45}
-h2{font-size:clamp(24px,4vw,34px);margin-bottom:12px}
-.en{font-family:var(--en);font-size:14px;letter-spacing:.3em;color:var(--teal);display:block;margin-bottom:4px}
-.lead{max-width:34em;color:var(--muted)}
-section{padding:88px 0}
-.note{font-size:13px;color:var(--muted);margin-top:12px}
-
-header{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
-header .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
-.logo{font-family:var(--en);font-weight:600;font-size:24px;letter-spacing:.3em;text-decoration:none}
-header nav{display:flex;gap:24px;font-size:14px;align-items:center}
-header nav a{text-decoration:none}
-header nav a:hover{color:var(--teal)}
-header nav .btn{padding:8px 20px;font-size:14px}
-@media(max-width:820px){header nav{display:none}}
-
-.btn{display:inline-block;background:var(--teal);color:#fff;text-decoration:none;padding:16px 36px;border-radius:12px;font-weight:700;transition:background .2s}
-.btn:hover{background:var(--ink)}
-.btn.peach{background:var(--peach);color:var(--ink)}
-.btn.peach:hover{background:#ff9f82}
-.btn.ghost{background:transparent;color:var(--ink);border:2px solid var(--ink)}
-.btn.ghost:hover{background:var(--ice)}
-
-/* hero */
-.hero{background:var(--ice);padding:56px 0 96px;overflow:hidden;position:relative}
-.hero::after{content:"";position:absolute;right:-120px;top:-120px;width:480px;height:480px;border-radius:50%;background:var(--mint);opacity:.6}
-.hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center;position:relative;z-index:1}
-.hero .kicker{display:inline-block;background:#fff;border-radius:999px;padding:4px 16px;font-size:14px;font-weight:700;color:var(--teal);margin-bottom:16px}
-.hero h1{font-size:clamp(32px,5.8vw,56px);margin-bottom:20px}
-.hero h1 span{background:linear-gradient(transparent 62%,var(--peach) 62%)}
-.hero p{max-width:30em;margin-bottom:24px}
-.offer{background:#fff;border-radius:16px;padding:20px 24px;display:inline-flex;align-items:center;gap:20px;margin-bottom:28px;box-shadow:0 8px 24px rgba(31,138,126,.12);flex-wrap:wrap}
-.offer .l{font-weight:700;line-height:1.4}
-.offer .l small{display:block;font-weight:500;font-size:12px;color:var(--muted)}
-.offer .p{font-family:var(--en);font-weight:600;font-size:52px;color:var(--teal);line-height:1}
-.offer .p small{font-family:var(--sans);font-size:16px}
-.hero .cta{display:flex;flex-wrap:wrap;gap:14px}
-.visual{aspect-ratio:1;max-width:420px;margin:0 auto;width:100%;position:relative}
-.visual .arm{position:absolute;left:8%;right:8%;top:30%;height:30%;border-radius:999px;background:linear-gradient(180deg,#ffe9dd,#f6d2be);transform:rotate(-12deg);box-shadow:0 16px 40px rgba(0,0,0,.08)}
-.visual .shine{position:absolute;left:30%;top:22%;width:46%;height:46%;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.95),rgba(255,255,255,0) 70%);animation:pulse 3s ease-in-out infinite}
-@keyframes pulse{50%{transform:scale(1.08);opacity:.7}}
-.visual .stat{position:absolute;background:#fff;border-radius:14px;padding:10px 16px;box-shadow:0 8px 20px rgba(0,0,0,.08);font-size:13px;line-height:1.4}
-.visual .stat b{display:block;font-size:20px;color:var(--teal)}
-@media(max-width:820px){.hero .wrap{grid-template-columns:1fr}.visual{max-width:320px}}
-
-/* worries */
-.worries .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px;margin-top:32px}
-.worries .grid div{border:2px solid var(--line);border-radius:16px;padding:22px;position:relative;padding-left:56px}
-.worries .grid div::before{content:"?";position:absolute;left:18px;top:20px;width:26px;height:26px;border-radius:50%;background:var(--peach);display:grid;place-items:center;font-weight:800;font-size:14px}
-
-/* reasons */
-.reasons{background:var(--ink);color:#fff}
-.reasons .lead{color:#c5dcd8}
-.reasons .en{color:var(--mint)}
-.reasons .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px;margin-top:40px}
-.reasons article{background:rgba(255,255,255,.06);border-radius:16px;padding:28px}
-.reasons .n{font-family:var(--en);font-size:40px;color:var(--mint);line-height:1}
-.reasons h3{font-size:19px;margin:10px 0 6px}
-.reasons p{font-size:14px;color:#c5dcd8}
-
-/* simulator */
-.sim{background:var(--ice)}
-.sim .box{background:#fff;border-radius:20px;padding:32px;margin-top:32px;display:grid;grid-template-columns:1.4fr 1fr;gap:32px}
-@media(max-width:820px){.sim .box{grid-template-columns:1fr;padding:24px}}
-.parts{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:10px}
-.parts label{cursor:pointer}
-.parts input{position:absolute;opacity:0}
-.parts span{display:block;border:2px solid var(--line);border-radius:12px;padding:12px;font-weight:700;font-size:15px;transition:.15s}
-.parts span small{display:block;font-weight:400;font-size:12px;color:var(--muted)}
-.parts input:checked+span{border-color:var(--teal);background:var(--ice)}
-.parts input:focus-visible+span{outline:3px solid var(--teal);outline-offset:2px}
-.total{background:var(--ink);color:#fff;border-radius:16px;padding:28px;display:flex;flex-direction:column;justify-content:center;gap:8px}
-.total .row{display:flex;justify-content:space-between;font-size:14px;color:#c5dcd8}
-.total .sum{font-family:var(--en);font-weight:600;font-size:44px;line-height:1.1}
-.total .sum small{font-family:var(--sans);font-size:15px}
-.total .hint{font-size:13px;color:var(--mint);min-height:1.8em}
-.total .btn{margin-top:8px;text-align:center}
-
-/* plans */
-.plans .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px;margin-top:40px}
-.plan{border:2px solid var(--line);border-radius:20px;padding:32px 28px;display:flex;flex-direction:column}
-.plan.rec{border-color:var(--teal);background:var(--ice);position:relative}
-.plan.rec::before{content:"人気No.1";position:absolute;top:-14px;right:24px;background:var(--peach);font-weight:800;font-size:13px;padding:2px 14px;border-radius:999px}
-.plan h3{font-size:20px}
-.plan .desc{font-size:14px;color:var(--muted)}
-.plan .amount{font-family:var(--en);font-weight:600;font-size:36px;margin:12px 0 0;line-height:1.2}
-.plan .amount small{font-family:var(--sans);font-size:14px}
-.plan .sub{font-size:13px;color:var(--muted);margin-bottom:16px}
-.plan ul{padding-left:1.2em;font-size:14px;flex:1;margin-bottom:20px}
-.plan .btn{text-align:center}
-.contract{background:var(--ice);border-radius:16px;padding:24px;margin-top:32px;font-size:14px}
-.contract h3{font-size:16px;margin-bottom:6px}
-.contract ul{padding-left:1.2em;color:var(--muted)}
-
-/* voice */
-.voice .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;margin-top:32px}
-.voice blockquote{background:var(--ice);padding:28px;border-radius:20px}
-.voice cite{display:block;margin-top:12px;font-style:normal;font-size:13px;color:var(--muted)}
-
-/* flow */
-.flow{background:var(--ice)}
-.flow ol{list-style:none;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin-top:32px;counter-reset:s}
-.flow li{counter-increment:s;background:#fff;border-radius:16px;padding:20px;text-align:center}
-.flow li::before{content:"0" counter(s);display:block;font-family:var(--en);font-weight:600;font-size:28px;color:var(--teal)}
-.flow strong{display:block}
-.flow li span{font-size:13px;color:var(--muted)}
-
-/* faq */
-.faq details{border:2px solid var(--line);border-radius:14px;padding:16px 20px;max-width:760px;margin-top:12px}
-.faq summary{cursor:pointer;font-weight:700;list-style:none;display:flex;justify-content:space-between;gap:16px}
-.faq summary::-webkit-details-marker{display:none}
-.faq summary::before{content:"Q";font-family:var(--en);font-weight:600;color:var(--teal);margin-right:4px}
-.faq summary span{flex:1}
-.faq summary::after{content:"+";font-size:22px;line-height:1;color:var(--teal)}
-.faq details[open] summary::after{content:"−"}
-.faq details p{margin-top:12px;color:var(--muted);font-size:15px}
-
-.final{background:var(--teal);color:#fff;text-align:center}
-.final p{margin:0 auto 32px;max-width:30em;color:#dff4f0}
-
-footer{padding:40px 0;font-size:13px;color:var(--muted);text-align:center}
-footer p+p{margin-top:6px}
-
-.sticky{position:fixed;left:0;right:0;bottom:0;z-index:20;background:#fff;border-top:1px solid var(--line);padding:10px 16px;display:none}
-.sticky .btn{display:block;text-align:center;padding:14px}
-@media(max-width:820px){.sticky{display:block}}
-</style>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/css/lp-base.css">
+<link rel="stylesheet" href="theme.css">
+<script>document.documentElement.classList.add("js")</script>
 </head>
 <body>
 
-<header>
-  <div class="wrap">
-    <a class="logo" href="#top">LISSE</a>
-    <nav aria-label="ページ内メニュー">
-      <a href="#reason">選ばれる理由</a>
-      <a href="#sim">料金シミュレーション</a>
-      <a href="#plans">プラン</a>
-      <a href="#faq">よくある質問</a>
-      <a class="btn peach" href="#reserve">体験予約</a>
+<!-- ▼ ヘッダー ========================================================= -->
+<header class="l-header">
+  <div class="l-wrap l-header__inner">
+    <a class="l-header__logo" href="#top">LISSE</a>
+    <button class="l-header__toggle" type="button" aria-label="メニューを開く" aria-expanded="false" aria-controls="nav"><span></span><span></span><span></span></button>
+    <nav class="l-nav" id="nav" aria-label="ページ内メニュー">
+      <ul class="l-nav__list">
+        <li><a href="#reason"><span>Reason</span>選ばれる理由</a></li>
+        <li><a href="#sim"><span>Simulation</span>料金シミュレーション</a></li>
+        <li><a href="#plan"><span>Plan</span>料金プラン</a></li>
+        <li><a href="#faq"><span>Q&amp;A</span>よくある質問</a></li>
+        <li><a href="#salon"><span>Salon</span>店舗</a></li>
+      </ul>
+      <a class="c-btn" href="#reserve">500円で体験予約</a>
     </nav>
   </div>
 </header>
 
 <main id="top">
-  <section class="hero">
-    <div class="wrap">
+
+  <!-- ▼ ヒーロー(画像: images/hero.svg)================================ -->
+  <section class="p-hero p-hero--split">
+    <div class="l-wrap p-hero__inner">
       <div>
-        <span class="kicker">全国12店舗の脱毛サロン(サンプル)</span>
-        <h1>ムダ毛の自己処理から、<br><span>卒業しよう。</span></h1>
-        <p>冷却しながら照射する光脱毛で、痛みに配慮。顔・VIOを含む全身を、1回最短60分でお手入れします。</p>
-        <div class="offer">
-          <div class="l">全身脱毛<br>初回体験<small>顔・VIO含む/お一人様1回</small></div>
-          <div class="p">500<small>円</small></div>
-        </div>
-        <div class="cta">
-          <a class="btn peach" href="#reserve">500円で体験予約する</a>
-          <a class="btn ghost" href="#sim">料金をシミュレーション</a>
+        <span class="p-hero__en" data-reveal>Smooth Skin Salon</span>
+        <h1 class="p-hero__title" data-reveal>自己処理の手間を、<br>少しずつ<br>手放していく。</h1>
+        <p class="p-hero__text" data-reveal>冷却しながら照射する光脱毛で、痛みに配慮したお手入れを。顔・VIOを含む全身を、1回最短60分で行います。</p>
+        <ul class="p-hero__points" data-reveal><li>全国12店舗(サンプル)</li><li>アプリで24時間予約</li><li>体験当日の勧誘なし</li></ul>
+        <div class="c-btn-group" data-reveal>
+          <a class="c-btn" href="#reserve">500円で体験予約する</a>
+          <a class="c-btn c-btn--ghost" href="#sim">料金をシミュレーション</a>
         </div>
       </div>
-      <figure class="visual" role="img" aria-label="サロンの特徴をまとめたイメージ(サンプル)">
-        <div class="arm"></div><div class="shine"></div>
-        <div class="stat" style="left:0;top:6%"><b>最短60分</b>全身1回あたり</div>
-        <div class="stat" style="right:0;top:56%"><b>冷却照射</b>痛みに配慮</div>
-        <div class="stat" style="left:10%;bottom:4%"><b>勧誘なし</b>体験当日</div>
-      </figure>
-    </div>
-  </section>
-
-  <section class="worries">
-    <div class="wrap">
-      <span class="en">TROUBLE</span>
-      <h2>自己処理、こんなことに困っていませんか</h2>
-      <div class="grid">
-        <div>カミソリ負けで、肌が赤くなったりポツポツしたりする</div>
-        <div>背中やうなじなど、自分では手が届かない</div>
-        <div>夏前になると、毎朝の処理に時間をとられる</div>
-        <div>脱毛サロンは「痛い・勧誘が強い」イメージがある</div>
+      <div class="p-hero__media" data-reveal="fade">
+        <figure class="c-media"><img src="images/hero.svg" alt="光脱毛のイメージ" width="1200" height="1500" fetchpriority="high"></figure>
+        <p class="c-campaign c-campaign--br">全身脱毛<br>初回体験<b>500<small style="font-size:14px">円</small></b>顔・VIO込み</p>
       </div>
     </div>
   </section>
 
-  <section class="reasons" id="reason">
-    <div class="wrap">
-      <span class="en">REASON</span>
-      <h2>LISSEが選ばれる4つの理由</h2>
-      <p class="lead">通いやすさと、安心して続けられることを大切にしています。</p>
-      <div class="grid">
-        <article><div class="n">01</div><h3>痛みに配慮した冷却照射</h3><p>照射面を冷やしながら光を当てるので、「ゴムで弾かれる」ような刺激をやわらげます。</p></article>
-        <article><div class="n">02</div><h3>アプリで24時間予約</h3><p>前日20時までキャンセル無料。全国どの店舗でも予約できます。</p></article>
-        <article><div class="n">03</div><h3>シェービング無料</h3><p>背中やうなじなど、手が届かない部分の剃り残しはスタッフが無料で対応します。</p></article>
-        <article><div class="n">04</div><h3>勧誘・追加料金なし</h3><p>体験当日にプランをおすすめすることはありません。料金は事前にすべてご提示します。</p></article>
+  <!-- ▼ お悩み ======================================================= -->
+  <section class="l-sec p-worry">
+    <div class="l-wrap">
+      <div class="c-sec-head c-sec-head--center" data-reveal>
+        <span class="c-sec-head__en">Trouble</span>
+        <h2 class="c-sec-head__ja">自己処理、こんなことに困っていませんか</h2>
+      </div>
+      <ul class="p-worry__list" data-reveal>
+        <li>カミソリ負けで、肌が赤くなりやすい</li>
+        <li>背中やうなじなど、自分では手が届かない</li>
+        <li>夏前になると、毎朝の処理に時間がかかる</li>
+        <li>サロンは「痛い・勧誘が強い」イメージがある</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ▼ 選ばれる理由(画像: images/reason-01〜04)====================== -->
+  <section class="l-sec l-sec--alt" id="reason">
+    <div class="l-wrap">
+      <div class="c-sec-head" data-reveal>
+        <span class="c-sec-head__en">Reason</span>
+        <h2 class="c-sec-head__ja">LISSEが選ばれる4つの理由</h2>
+      </div>
+      <div class="c-grid c-grid--2" data-reveal>
+        <article class="c-card"><figure class="c-media"><img src="images/reason-01.svg" alt="" width="1200" height="900" loading="lazy"></figure><div class="c-card__body"><span class="c-step">Reason 01</span><h3 class="c-card__title">痛みに配慮した冷却照射</h3><p>照射面を冷やしながら光を当てるので、「ゴムで弾かれる」ような刺激をやわらげます。※感じ方には個人差があります。</p></div></article>
+        <article class="c-card"><figure class="c-media"><img src="images/reason-02.svg" alt="" width="1200" height="900" loading="lazy"></figure><div class="c-card__body"><span class="c-step">Reason 02</span><h3 class="c-card__title">全室個室・アプリで24時間予約</h3><p>前日20時までキャンセル無料。全国どの店舗でも予約できます。</p></div></article>
+        <article class="c-card"><figure class="c-media"><img src="images/reason-03.svg" alt="" width="1200" height="900" loading="lazy"></figure><div class="c-card__body"><span class="c-step">Reason 03</span><h3 class="c-card__title">シェービング・保湿ケア無料</h3><p>背中やうなじなど、手の届かない部分の剃り残しはスタッフが対応します。照射後は保湿ケアも。</p></div></article>
+        <article class="c-card"><figure class="c-media"><img src="images/reason-04.svg" alt="" width="1200" height="900" loading="lazy"></figure><div class="c-card__body"><span class="c-step">Reason 04</span><h3 class="c-card__title">勧誘・追加料金なし</h3><p>体験当日にプランをおすすめすることはありません。料金は事前にすべてご提示します。</p></div></article>
       </div>
     </div>
   </section>
 
-  <section class="sim" id="sim">
-    <div class="wrap">
-      <span class="en">SIMULATION</span>
-      <h2>気になる部位で、料金をシミュレーション</h2>
-      <p class="lead">脱毛したい部位を選ぶと、6回コースの目安料金が表示されます。部位が多い場合は、全身プランとの比較もできます。</p>
-      <form class="box" id="simForm" onsubmit="return false">
-        <div class="parts">
-          <label><input type="checkbox" value="19800"><span>ワキ<small>6回 19,800円</small></span></label>
-          <label><input type="checkbox" value="39600"><span>VIO<small>6回 39,600円</small></span></label>
-          <label><input type="checkbox" value="29700"><span>顔<small>6回 29,700円</small></span></label>
-          <label><input type="checkbox" value="29700"><span>腕(ひじ上下)<small>6回 29,700円</small></span></label>
-          <label><input type="checkbox" value="39600"><span>脚(ひざ上下)<small>6回 39,600円</small></span></label>
-          <label><input type="checkbox" value="29700"><span>背中<small>6回 29,700円</small></span></label>
-          <label><input type="checkbox" value="19800"><span>うなじ<small>6回 19,800円</small></span></label>
-          <label><input type="checkbox" value="19800"><span>お腹<small>6回 19,800円</small></span></label>
+  <!-- ▼ 料金シミュレーター(料金は各 input の value)=================== -->
+  <section class="l-sec" id="sim">
+    <div class="l-wrap">
+      <div class="c-sec-head c-sec-head--center" data-reveal>
+        <span class="c-sec-head__en">Simulation</span>
+        <h2 class="c-sec-head__ja">気になる部位で、料金をシミュレーション</h2>
+      </div>
+      <p class="c-lead u-center" data-reveal>脱毛したい部位を選ぶと、6回コースの目安料金が表示されます。</p>
+      <form class="p-sim u-mt-m" id="simForm" onsubmit="return false" data-reveal>
+        <div class="p-sim__parts">
+          <label><input type="checkbox" value="19800"><span><b>ワキ</b><small>6回 19,800円</small></span></label>
+          <label><input type="checkbox" value="39600"><span><b>VIO</b><small>6回 39,600円</small></span></label>
+          <label><input type="checkbox" value="29700"><span><b>顔</b><small>6回 29,700円</small></span></label>
+          <label><input type="checkbox" value="29700"><span><b>腕</b><small>6回 29,700円</small></span></label>
+          <label><input type="checkbox" value="39600"><span><b>脚</b><small>6回 39,600円</small></span></label>
+          <label><input type="checkbox" value="29700"><span><b>背中</b><small>6回 29,700円</small></span></label>
+          <label><input type="checkbox" value="19800"><span><b>うなじ</b><small>6回 19,800円</small></span></label>
+          <label><input type="checkbox" value="19800"><span><b>お腹</b><small>6回 19,800円</small></span></label>
         </div>
-        <div class="total" aria-live="polite">
-          <div class="row"><span>選択した部位</span><span id="cnt">0部位</span></div>
-          <div class="sum"><span id="sum">0</span><small>円(税込)</small></div>
-          <div class="hint" id="hint">部位を選んでください</div>
-          <a class="btn peach" href="#reserve">この内容で体験予約</a>
+        <div class="p-sim__total" aria-live="polite">
+          <div class="p-sim__row"><span>選択した部位</span><span id="simCount">0部位</span></div>
+          <div class="p-sim__sum"><span id="simSum">0</span><small>円(税込)</small></div>
+          <p class="p-sim__hint" id="simHint"></p>
+          <a class="c-btn c-btn--light" href="#reserve">この内容で体験予約</a>
         </div>
       </form>
     </div>
   </section>
 
-  <section class="plans" id="plans">
-    <div class="wrap">
-      <span class="en">PLAN</span>
-      <h2>料金プラン</h2>
-      <p class="lead">すべて税込・追加料金なし。シェービング代・キャンセル料(前日まで)はかかりません。</p>
-      <div class="grid">
-        <div class="plan">
-          <h3>部位ごとプラン</h3>
-          <p class="desc">気になる部位だけ集中して</p>
-          <div class="amount">19,800<small>円〜</small></div>
-          <p class="sub">6回コース</p>
-          <ul><li>ワキ・うなじなど8部位から選択</li><li>あとから部位の追加もOK</li></ul>
-          <a class="btn ghost" href="#reserve">体験予約</a>
-        </div>
-        <div class="plan rec">
-          <h3>全身脱毛プラン</h3>
-          <p class="desc">顔・VIOを含む全身</p>
-          <div class="amount">118,800<small>円</small></div>
-          <p class="sub">12回コース(1回あたり9,900円)</p>
-          <ul><li>分割払い可:月々4,950円〜(24回・金利手数料はサロン負担)</li><li>アプリで次回予約が取りやすい</li><li>保湿ケア込み</li></ul>
-          <a class="btn peach" href="#reserve">体験予約</a>
-        </div>
-        <div class="plan">
-          <h3>全身 都度払い</h3>
-          <p class="desc">まとめて契約したくない方に</p>
-          <div class="amount">14,300<small>円/回</small></div>
-          <p class="sub">顔・VIO含む</p>
-          <ul><li>契約・まとめ払い不要</li><li>好きなタイミングで1回ずつ</li></ul>
-          <a class="btn ghost" href="#reserve">体験予約</a>
-        </div>
+  <!-- ▼ 料金プラン(画像: images/plan-01〜03)========================= -->
+  <section class="l-sec l-sec--alt" id="plan">
+    <div class="l-wrap">
+      <div class="c-sec-head c-sec-head--center" data-reveal>
+        <span class="c-sec-head__en">Plan</span>
+        <h2 class="c-sec-head__ja">料金プラン</h2>
       </div>
-      <div class="contract">
-        <h3>ご契約について</h3>
+      <div class="c-grid c-grid--3" data-reveal>
+        <article class="c-price">
+          <figure class="c-media"><img src="images/plan-01.svg" alt="" width="1200" height="750" loading="lazy"></figure>
+          <div class="c-price__body">
+            <h3 class="c-price__name">部位ごとプラン</h3>
+            <p class="c-price__desc">気になる部位だけ集中して</p>
+            <p class="c-price__amount">19,800<small>円〜</small></p>
+            <p class="c-price__sub">6回コース</p>
+            <ul class="c-price__list"><li>8部位から選択</li><li>あとから部位の追加もOK</li></ul>
+            <a class="c-btn c-btn--ghost c-btn--block" href="#reserve">体験予約</a>
+          </div>
+        </article>
+        <article class="c-price is-featured">
+          <span class="c-price__flag">人気No.1</span>
+          <figure class="c-media"><img src="images/plan-02.svg" alt="" width="1200" height="750" loading="lazy"></figure>
+          <div class="c-price__body">
+            <h3 class="c-price__name">全身脱毛プラン</h3>
+            <p class="c-price__desc">顔・VIOを含む全身</p>
+            <p class="c-price__amount">118,800<small>円</small></p>
+            <p class="c-price__sub">12回コース(1回あたり9,900円)</p>
+            <ul class="c-price__list"><li>分割払い可:月々4,950円〜(24回)</li><li>アプリで次回予約が取りやすい</li><li>保湿ケア込み</li></ul>
+            <a class="c-btn c-btn--block" href="#reserve">体験予約</a>
+          </div>
+        </article>
+        <article class="c-price">
+          <figure class="c-media"><img src="images/plan-03.svg" alt="" width="1200" height="750" loading="lazy"></figure>
+          <div class="c-price__body">
+            <h3 class="c-price__name">全身 都度払い</h3>
+            <p class="c-price__desc">まとめて契約したくない方に</p>
+            <p class="c-price__amount">14,300<small>円/回</small></p>
+            <p class="c-price__sub">顔・VIO含む</p>
+            <ul class="c-price__list"><li>契約・まとめ払い不要</li><li>好きなタイミングで1回ずつ</li></ul>
+            <a class="c-btn c-btn--ghost c-btn--block" href="#reserve">体験予約</a>
+          </div>
+        </article>
+      </div>
+      <p class="c-note u-center">※表示はすべて税込です。シェービング代・前日までのキャンセル料はかかりません。</p>
+    </div>
+  </section>
+
+  <!-- ▼ サロン脱毛と医療脱毛の違い / メリット・注意点 ================= -->
+  <section class="l-sec">
+    <div class="l-wrap">
+      <div class="c-sec-head" data-reveal>
+        <span class="c-sec-head__en">Compare</span>
+        <h2 class="c-sec-head__ja">サロン脱毛と医療脱毛の違い</h2>
+      </div>
+      <p class="c-lead" data-reveal>どちらにもメリット・デメリットがあります。ご自身の目的や予算に合わせてお選びください。</p>
+      <div class="c-table-wrap u-mt-m" data-reveal>
+        <table class="c-table">
+          <caption class="u-sr">サロン脱毛と医療脱毛の比較</caption>
+          <thead><tr><th scope="col"></th><th scope="col" class="is-featured">サロン脱毛(LISSE)</th><th scope="col">医療脱毛(クリニック)</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">施術</th><td class="is-featured">光(エステの範囲で毛を減らす)</td><td>レーザー(医師の管理のもと)</td></tr>
+            <tr><th scope="row">痛み</th><td class="is-featured">比較的感じにくい</td><td>感じやすい傾向</td></tr>
+            <tr><th scope="row">通う期間の目安</th><td class="is-featured">1年半〜2年</td><td>1年前後</td></tr>
+            <tr><th scope="row">料金の目安</th><td class="is-featured">比較的おさえやすい</td><td>高めの傾向</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="p-merit u-mt-m" data-reveal>
+        <div class="c-box"><p class="c-box__title">脱毛のメリット</p><ul><li>自己処理の回数が減り、時間に余裕ができる</li><li>カミソリによる肌への負担を減らせる</li><li>処理し忘れを気にしなくてよくなる</li></ul></div>
+        <div class="c-box"><p class="c-box__title">事前に知っておきたいこと</p><ul><li>定期的にサロンへ通う時間が必要です</li><li>通っている間は毛抜き・ワックスでの処理ができません</li><li>施術期間中は日焼け対策が必要です</li><li>効果の感じ方や必要な回数には個人差があります</li></ul></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ▼ お客様の声(画像: images/voice-01〜03)========================= -->
+  <section class="l-sec l-sec--alt" id="voice">
+    <div class="l-wrap">
+      <div class="c-sec-head c-sec-head--center" data-reveal>
+        <span class="c-sec-head__en">Voice</span>
+        <h2 class="c-sec-head__ja">お客様の声</h2>
+      </div>
+      <div class="c-grid c-grid--3" data-reveal>
+        <article class="c-voice"><div class="c-voice__head"><figure class="c-media c-media--circle"><img src="images/voice-01.svg" alt="" width="400" height="400" loading="lazy"></figure><p class="c-voice__who"><b>20代</b>学生</p></div><p class="c-voice__title">思っていたより痛くなかった</p><blockquote>体験の日に何もすすめられず、家で考えてから決められたのも良かったです。</blockquote></article>
+        <article class="c-voice"><div class="c-voice__head"><figure class="c-media c-media--circle"><img src="images/voice-02.svg" alt="" width="400" height="400" loading="lazy"></figure><p class="c-voice__who"><b>30代</b>会社員</p></div><p class="c-voice__title">仕事帰りに通いやすい</p><blockquote>背中のシェービングをお願いできるのが助かります。アプリで夜の枠も取りやすいです。</blockquote></article>
+        <article class="c-voice"><div class="c-voice__head"><figure class="c-media c-media--circle"><img src="images/voice-03.svg" alt="" width="400" height="400" loading="lazy"></figure><p class="c-voice__who"><b>40代</b>パート</p></div><p class="c-voice__title">朝の支度に余裕ができた</p><blockquote>自己処理の回数が減ってきました。料金の説明も分かりやすかったです。</blockquote></article>
+      </div>
+      <p class="c-note">※サンプル用の架空の声です。感じ方や効果には個人差があります。</p>
+    </div>
+  </section>
+
+  <!-- ▼ 体験の流れ(画像: images/flow-01〜05)========================= -->
+  <section class="l-sec p-flow">
+    <div class="l-wrap">
+      <div class="c-sec-head c-sec-head--center" data-reveal>
+        <span class="c-sec-head__en">Flow</span>
+        <h2 class="c-sec-head__ja">体験の流れ</h2>
+      </div>
+      <ol class="p-flow__list" style="--cols:5" data-reveal>
+        <li><figure class="c-media"><img src="images/flow-01.svg" alt="" width="400" height="400" loading="lazy"></figure><span class="p-flow__step">Step</span><h3 class="p-flow__title">WEB予約</h3><p>24時間受付</p></li>
+        <li><figure class="c-media"><img src="images/flow-02.svg" alt="" width="400" height="400" loading="lazy"></figure><span class="p-flow__step">Step</span><h3 class="p-flow__title">カウンセリング</h3><p>肌と毛の状態を確認</p></li>
+        <li><figure class="c-media"><img src="images/flow-03.svg" alt="" width="400" height="400" loading="lazy"></figure><span class="p-flow__step">Step</span><h3 class="p-flow__title">シェービング</h3><p>剃り残しはお任せください</p></li>
+        <li><figure class="c-media"><img src="images/flow-04.svg" alt="" width="400" height="400" loading="lazy"></figure><span class="p-flow__step">Step</span><h3 class="p-flow__title">照射・保湿</h3><p>全身最短60分</p></li>
+        <li><figure class="c-media"><img src="images/flow-05.svg" alt="" width="400" height="400" loading="lazy"></figure><span class="p-flow__step">Step</span><h3 class="p-flow__title">ご説明</h3><p>勧誘はありません</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ▼ よくある質問 ================================================= -->
+  <section class="l-sec l-sec--alt p-faq" id="faq">
+    <div class="l-wrap">
+      <div class="c-sec-head c-sec-head--center" data-reveal>
+        <span class="c-sec-head__en">Q&amp;A</span>
+        <h2 class="c-sec-head__ja">よくある質問</h2>
+      </div>
+      <div class="p-faq__list" data-reveal>
+        <details class="p-faq__item"><summary>何回くらいで自己処理が楽になりますか?</summary><p class="p-faq__a">毛質や部位によって異なります。目安として6〜12回ほどで「自己処理の回数が減った」と感じる方が多いですが、個人差があります。カウンセリングでお伝えします。</p></details>
+        <details class="p-faq__item"><summary>永久脱毛はできますか?</summary><p class="p-faq__a">当サロンの光脱毛はエステの範囲で毛の量を減らしていく施術で、永久脱毛ではありません。永久脱毛をご希望の場合は医療機関にご相談ください。</p></details>
+        <details class="p-faq__item"><summary>日焼けしていても受けられますか?</summary><p class="p-faq__a">強い日焼けがある場合は、肌への負担を考えてお断りすることがあります。施術期間中は日焼け対策をお願いしています。</p></details>
+        <details class="p-faq__item"><summary>生理中でも施術できますか?</summary><p class="p-faq__a">VIO以外の部位は施術可能です。体調がすぐれない場合は、前日20時までなら無料で日程を変更できます。</p></details>
+      </div>
+      <div class="c-box u-mt-l" data-reveal style="max-width:880px;margin-left:auto;margin-right:auto">
+        <p class="c-box__title">ご契約について</p>
         <ul>
           <li>契約期間が1か月を超え、金額が5万円を超えるコースは特定継続的役務提供契約にあたり、契約書面の受領日から8日以内であればクーリング・オフができます。</li>
-          <li>クーリング・オフ期間経過後も、中途解約が可能です(未消化分を所定の計算方法で返金)。</li>
-          <li>当サロンは光脱毛を行うエステサロンであり、医療脱毛ではありません。施術は毛の量を減らす「減毛・抑毛」を目的としています。</li>
+          <li>クーリング・オフ期間の経過後も中途解約が可能です(未消化分を所定の計算方法で返金)。</li>
         </ul>
       </div>
     </div>
   </section>
 
-  <section class="voice">
-    <div class="wrap">
-      <span class="en">VOICE</span>
-      <h2>お客様の声</h2>
-      <div class="grid">
-        <blockquote>思っていたより痛みが少なくて驚きました。体験の日に何もすすめられず、家で考えてから決められたのも良かったです。<cite>20代・学生</cite></blockquote>
-        <blockquote>背中のシェービングをお願いできるのが助かります。アプリで仕事帰りの枠も取りやすいです。<cite>30代・会社員</cite></blockquote>
-        <blockquote>自己処理の回数が減って、朝の支度が楽になりました。料金の説明も分かりやすかったです。<cite>40代・パート</cite></blockquote>
+  <!-- ▼ 店舗情報(画像: images/shop.svg / map.svg)==================== -->
+  <section class="l-sec p-info" id="salon">
+    <div class="l-wrap">
+      <div class="c-sec-head" data-reveal>
+        <span class="c-sec-head__en">Salon</span>
+        <h2 class="c-sec-head__ja">店舗情報</h2>
       </div>
-      <p class="note">※サンプル用の架空の声です。感じ方や効果には個人差があります。</p>
+      <div class="p-info__inner" data-reveal>
+        <div>
+          <figure class="c-media" style="--ratio:3/2"><img src="images/shop.svg" alt="" width="1200" height="800" loading="lazy"></figure>
+          <dl class="c-dl u-mt-m">
+            <dt>店舗名</dt><dd>LISSE 〇〇駅前店(サンプル)</dd>
+            <dt>住所</dt><dd>〒000-0000 〇〇県〇〇市〇〇 1-2-3 〇〇ビル 5F</dd>
+            <dt>アクセス</dt><dd>〇〇駅 西口より徒歩2分</dd>
+            <dt>営業時間</dt><dd>11:00〜21:00</dd>
+            <dt>定休日</dt><dd>年末年始</dd>
+          </dl>
+        </div>
+        <!-- Googleマップを使う場合は figure を <iframe> に置き換え -->
+        <figure class="c-media" style="--ratio:1"><img src="images/map.svg" alt="店舗周辺の地図" width="1200" height="800" loading="lazy"></figure>
+      </div>
     </div>
   </section>
 
-  <section class="flow">
-    <div class="wrap">
-      <span class="en">FLOW</span>
-      <h2>体験の流れ</h2>
-      <ol>
-        <li><strong>WEB予約</strong><span>24時間受付</span></li>
-        <li><strong>カウンセリング</strong><span>肌状態・毛質を確認</span></li>
-        <li><strong>シェービング</strong><span>剃り残しはお任せ</span></li>
-        <li><strong>照射・保湿</strong><span>全身最短60分</span></li>
-        <li><strong>ご説明</strong><span>勧誘はありません</span></li>
-      </ol>
-    </div>
-  </section>
-
-  <section class="faq" id="faq">
-    <div class="wrap">
-      <span class="en">FAQ</span>
-      <h2>よくある質問</h2>
-      <details><summary><span>何回くらいで自己処理が楽になりますか?</span></summary><p>毛質や部位によって異なりますが、多くの方が6〜12回ほどで自己処理の回数が減ったと感じています。カウンセリングで目安をお伝えします。</p></details>
-      <details><summary><span>医療脱毛との違いは?</span></summary><p>医療脱毛は医療機関で医師の管理のもと行うもので、当サロンの光脱毛とは異なります。当サロンは肌への負担に配慮した光で、毛の量を減らしていく施術です。</p></details>
-      <details><summary><span>日焼けしていても受けられますか?</span></summary><p>強い日焼けがある場合は、肌への負担を考えてお断りすることがあります。施術期間中は日焼け対策をお願いしています。</p></details>
-      <details><summary><span>生理中でも施術できますか?</span></summary><p>VIO以外の部位は施術可能です。体調がすぐれない場合は、前日20時までなら無料で日程を変更できます。</p></details>
-    </div>
-  </section>
-
-  <section class="final" id="reserve">
-    <div class="wrap">
-      <h2>まずは500円で、<br>全身脱毛を体験してみませんか。</h2>
+  <!-- ▼ 最後のCTA(画像: images/cta.svg)============================= -->
+  <section class="p-cta" id="reserve">
+    <div class="p-cta__bg"><img src="images/cta.svg" alt="" width="1600" height="900" loading="lazy"></div>
+    <div class="l-wrap p-cta__inner" data-reveal>
+      <span class="c-sec-head__en">Reservation</span>
+      <h2 class="p-cta__title">まずは500円で、<br class="u-sp">全身脱毛を体験してみませんか。</h2>
       <p>顔・VIOを含む全身の初回体験。当日の勧誘はありません。</p>
-      <a class="btn peach" href="#reserve">500円で体験予約する</a>
+      <div class="c-btn-group c-btn-group--center">
+        <a class="c-btn c-btn--light c-btn--lg" href="#reserve">500円で体験予約する</a>
+      </div>
     </div>
   </section>
 </main>
 
-<footer>
-  <div class="wrap">
-    <p>脱毛サロン LISSE(サンプル)/ 特定商取引法に基づく表記 / プライバシーポリシー</p>
-    <p>このページはポートフォリオ用の架空サロンのLPです。 <a href="../../../">ポートフォリオに戻る</a></p>
+<!-- ▼ フッター ======================================================= -->
+<footer class="l-footer">
+  <div class="l-wrap l-footer__inner">
+    <a class="l-footer__logo" href="#top">LISSE</a>
+    <ul class="l-footer__links">
+      <li><a href="#top">特定商取引法に基づく表記</a></li>
+      <li><a href="#top">プライバシーポリシー</a></li>
+      <li><a href="../../../">ポートフォリオに戻る</a></li>
+    </ul>
+    <p>このページはポートフォリオ用の架空サロンのLPです。© <span data-year></span> LISSE</p>
   </div>
 </footer>
 
-<div class="sticky"><a class="btn peach" href="#reserve">全身脱毛 体験500円で予約</a></div>
+<div class="c-sticky"><a class="c-btn" href="#reserve">全身脱毛 体験500円で予約</a></div>
 
-<script>
-// Price simulator: sums selected 6-session part prices; suggests full-body plan at 4+ parts
-const FULL = 118800;
-const boxes = [...document.querySelectorAll("#simForm input")];
-const yen = n => n.toLocaleString("ja-JP");
-function calc(){
-  const picked = boxes.filter(b => b.checked);
-  const sum = picked.reduce((a, b) => a + +b.value, 0);
-  document.getElementById("cnt").textContent = picked.length + "部位";
-  document.getElementById("sum").textContent = yen(sum);
-  document.getElementById("hint").textContent =
-    picked.length === 0 ? "部位を選んでください" :
-    sum >= FULL ? `全身プラン(12回 ${yen(FULL)}円)のほうがお得です` :
-    picked.length >= 3 ? "部位が増えるなら全身プランも比較できます" : "6回コースの目安料金です";
-}
-boxes.forEach(b => b.addEventListener("change", calc));
-calc();
-</script>
+<script src="../../assets/js/lp-base.js" defer></script>
+<script src="script.js" defer></script>
 </body>
 </html>

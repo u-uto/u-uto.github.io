@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!--
+  =====================================================================
+  LPテンプレート(basic)
+  ---------------------------------------------------------------------
+  使い方は lp/README.md を参照。
+  1. このフォルダごと lp/<ジャンル>/<案件名>/ にコピー
+  2. theme.css で色・フォントを設定
+  3. 「▼ 」コメントのセクションを案件の内容に書き換え(不要なセクションは丸ごと削除)
+  4. images/ の画像を差し替え(images/README.md に推奨サイズ)
+  ※ 公開前に下の noindex を削除すること
+  =====================================================================
+-->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>【サービス名】| 【キャッチコピー・オファー】</title>
+<meta name="description" content="【120字程度の説明文。検索結果やSNSのシェア時に表示されます】">
+<meta property="og:title" content="【サービス名】">
+<meta property="og:image" content="images/hero.svg">
+<link rel="icon" href="../../../favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/css/lp-base.css">
+<link rel="stylesheet" href="theme.css">
+<script>document.documentElement.classList.add("js")</script>
+</head>
+<body>
+
+<!-- ▼ ヘッダー(ロゴ画像を使う場合: <a class="l-header__logo"><img src="images/logo.svg" alt="ブランド名"></a>)== -->
+<header class="l-header">
+  <div class="l-wrap l-header__inner">
+    <a class="l-header__logo" href="#top">BRAND</a>
+    <button class="l-header__toggle" type="button" aria-label="メニューを開く" aria-expanded="false" aria-controls="nav"><span></span><span></span><span></span></button>
+    <nav class="l-nav" id="nav" aria-label="ページ内メニュー">
+      <ul class="l-nav__list">
+        <li><a href="#concept"><span>Concept</span>コンセプト</a></li>
+        <li><a href="#feature"><span>Feature</span>特長</a></li>
+        <li><a href="#price"><span>Price</span>料金</a></li>
+        <li><a href="#faq"><span>Q&amp;A</span>よくある質問</a></li>
+      </ul>
+      <a class="c-btn" href="#cta">【申込ボタン】</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ▼ ヒーロー ======================================================
+       種類は3つ。class を差し替えて使う(各LPを参照)
+       ・p-hero--full  … 画像全面 + 文字重ね(salon / supplement / diet)
+       ・p-hero--split … 文字左 + 画像右(cosmetics / hair-removal)
+       ・p-hero--frame … 角丸画像 + 下にカード(skincare)
+  ================================================================== -->
+  <section class="p-hero p-hero--full">
+    <div class="p-hero__bg"><img src="images/hero.svg" alt="" width="1600" height="1000" fetchpriority="high"></div>
+    <div class="l-wrap p-hero__inner">
+      <span class="p-hero__en" data-reveal>English Sub Copy</span>
+      <h1 class="p-hero__title" data-reveal>【メインコピー】<br>2〜3行で</h1>
+      <p class="p-hero__text" data-reveal>【リード文】誰の、どんな悩みを、どう解決するのかを2〜3行で。</p>
+      <ul class="p-hero__points" data-reveal><li>【特長1】</li><li>【特長2】</li><li>【特長3】</li></ul>
+      <div class="c-offer" data-reveal>
+        <span class="c-offer__label">【オファー名】<small>【条件】</small></span>
+        <s>【通常価格】</s>
+        <span class="c-offer__price">0,000<small>円(税込)</small></span>
+      </div>
+      <div class="c-btn-group" data-reveal>
+        <a class="c-btn" href="#cta">【申込ボタン】</a>
+        <a class="c-btn c-btn--ghost" href="#price">【サブボタン】</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ▼ コンセプト(画像1枚。2枚重ねにする場合は figure をもう1つ追加)=== -->
+  <section class="l-sec p-concept" id="concept">
+    <div class="l-wrap p-concept__inner">
+      <div class="p-concept__media" data-reveal>
+        <figure class="c-media" style="--ratio:4/5"><img src="images/concept.svg" alt="" width="1000" height="1250" loading="lazy"></figure>
+      </div>
+      <div class="p-concept__body" data-reveal>
+        <div class="c-sec-head" style="margin-bottom:32px">
+          <span class="c-sec-head__en">Concept</span>
+          <h2 class="c-sec-head__ja">【見出し】</h2>
+        </div>
+        <p class="c-catch">【キャッチ】</p>
+        <p>【本文】</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ▼ お悩み(li を増減して使う)==================================== -->
+  <section class="l-sec l-sec--alt p-worry">
+    <div class="l-wrap">
+      <div class="c-sec-head c-sec-head--center" data-reveal>
+        <span class="c-sec-head__en">Trouble</span>
+        <h2 class="c-sec-head__ja">こんなお悩みはありませんか</h2>
+      </div>
+      <ul class="p-worry__list" data-reveal>
+        <li>【お悩み1】</li><li>【お悩み2】</li><li>【お悩み3】</li><li>【お悩み4】</li>
+      </ul>
+      <div class="p-worry__answer" data-reveal><p class="c-catch">【解決への橋渡しの一言】</p></div>
+    </div>
+  </section>
+
+  <!-- ▼ 特長(article を増減。画像は左右交互に自動配置)================ -->
+  <section class="l-sec" id="feature">
+    <div class="l-wrap">
+      <div class="c-sec-head" data-reveal>
+        <span class="c-sec-head__en">Feature</span>
+        <h2 class="c-sec-head__ja">【見出し】</h2>
+      </div>
+      <div class="p-rows">
+        <article class="c-row" data-reveal>
+          <figure class="c-row__media c-media" style="--ratio:4/3"><img src="images/feature-01.svg" alt="" width="1200" height="900" loading="lazy"></figure>
+          <div class="c-row__body">
+            <div class="c-row__head"><span class="c-num">01</span><small>Point</small></div>
+            <h3 class="c-row__title">【特長タイトル】</h3>
+            <p>【説明】</p>
+          </div>
+        </article>
+        <article class="c-row" data-reveal>
+          <figure class="c-row__media c-media" style="--ratio:4/3"><img src="images/feature-02.svg" alt="" width="1200" height="900" loading="lazy"></figure>
+          <div class="c-row__body">
+            <div class="c-row__head"><span class="c-num">02</span><small>Point</small></div>
+            <h3 class="c-row__title">【特長タイトル】</h3>
+            <p>【説明】</p>
+          </div>
+        </article>
+        <article class="c-row" data-reveal>
+          <figure class="c-row__media c-media" style="--ratio:4/3"><img src="images/feature-03.svg" alt="" width="1200" height="900" loading="lazy"></figure>
+          <div class="c-row__body">
+            <div class="c-row__head"><span class="c-num">03</span><small>Point</small></div>
+            <h3 class="c-row__title">【特長タイトル】</h3>
+            <p>【説明】</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ▼ 料金(おすすめには is-featured と c-price__flag)=============== -->
+  <section class="l-sec l-sec--alt" id="price">
+    <div class="l-wrap">
+      <div class="c-sec-head c-sec-head--center" data-reveal>
+        <span class="c-sec-head__en">Price</span>
+        <h2 class="c-sec-head__ja">料金</h2>
+      </div>
+      <div class="c-grid c-grid--3" data-reveal>
+        <article class="c-price is-featured">
+          <span class="c-price__flag">おすすめ</span>
+          <figure class="c-media"><img src="images/price-01.svg" alt="" width="1200" height="750" loading="lazy"></figure>
+          <div class="c-price__body">
+            <h3 class="c-price__name">【プラン名】</h3>
+            <p class="c-price__desc">【内容】</p>
+            <p class="c-price__amount"><s>通常 0,000円</s>0,000<small>円</small></p>
+            <ul class="c-price__list"><li>【含まれるもの】</li><li>【含まれるもの】</li></ul>
+            <a class="c-btn c-btn--block" href="#cta">【ボタン】</a>
+          </div>
+        </article>
+        <article class="c-price">
+          <figure class="c-media"><img src="images/price-02.svg" alt="" width="1200" height="750" loading="lazy"></figure>
+          <div class="c-price__body">
+            <h3 class="c-price__name">【プラン名】</h3>
+            <p class="c-price__desc">【内容】</p>
+            <p class="c-price__amount">0,000<small>円</small></p>
+            <ul class="c-price__list"><li>【含まれるもの】</li></ul>
+            <a class="c-btn c-btn--ghost c-btn--block" href="#cta">【ボタン】</a>
+          </div>
+        </article>
+        <article class="c-price">
+          <figure class="c-media"><img src="images/price-03.svg" alt="" width="1200" height="750" loading="lazy"></figure>
+          <div class="c-price__body">
+            <h3 class="c-price__name">【プラン名】</h3>
+            <p class="c-price__desc">【内容】</p>
+            <p class="c-price__amount">0,000<small>円</small></p>
+            <ul class="c-price__list"><li>【含まれるもの】</li></ul>
+            <a class="c-btn c-btn--ghost c-btn--block" href="#cta">【ボタン】</a>
+          </div>
+        </article>
+      </div>
+      <p class="c-note u-center">※表示はすべて税込です。</p>
+    </div>
+  </section>
+
+  <!-- ▼ お客様の声 =================================================== -->
+  <section class="l-sec" id="voice">
+    <div class="l-wrap">
+      <div class="c-sec-head" data-reveal>
+        <span class="c-sec-head__en">Voice</span>
+        <h2 class="c-sec-head__ja">お客様の声</h2>
+      </div>
+      <div class="c-grid c-grid--3" data-reveal>
+        <article class="c-voice" style="background:var(--c-bg-alt)"><div class="c-voice__head"><figure class="c-media c-media--circle"><img src="images/voice-01.svg" alt="" width="400" height="400" loading="lazy"></figure><p class="c-voice__who"><b>【名前】</b>【属性】</p></div><p class="c-voice__title">【見出し】</p><blockquote>【本文】</blockquote></article>
+        <article class="c-voice" style="background:var(--c-bg-alt)"><div class="c-voice__head"><figure class="c-media c-media--circle"><img src="images/voice-02.svg" alt="" width="400" height="400" loading="lazy"></figure><p class="c-voice__who"><b>【名前】</b>【属性】</p></div><p class="c-voice__title">【見出し】</p><blockquote>【本文】</blockquote></article>
+        <article class="c-voice" style="background:var(--c-bg-alt)"><div class="c-voice__head"><figure class="c-media c-media--circle"><img src="images/voice-03.svg" alt="" width="400" height="400" loading="lazy"></figure><p class="c-voice__who"><b>【名前】</b>【属性】</p></div><p class="c-voice__title">【見出し】</p><blockquote>【本文】</blockquote></article>
+      </div>
+      <p class="c-note">※個人の感想であり、効果を保証するものではありません。</p>
+    </div>
+  </section>
+
+  <!-- ▼ 流れ(li の数に合わせて style="--cols:4" を変更)=============== -->
+  <section class="l-sec l-sec--alt p-flow">
+    <div class="l-wrap">
+      <div class="c-sec-head c-sec-head--center" data-reveal>
+        <span class="c-sec-head__en">Flow</span>
+        <h2 class="c-sec-head__ja">ご利用の流れ</h2>
+      </div>
+      <ol class="p-flow__list" style="--cols:4" data-reveal>
+        <li><span class="p-flow__step">Step</span><h3 class="p-flow__title">【ステップ】</h3><p>【説明】</p></li>
+        <li><span class="p-flow__step">Step</span><h3 class="p-flow__title">【ステップ】</h3><p>【説明】</p></li>
+        <li><span class="p-flow__step">Step</span><h3 class="p-flow__title">【ステップ】</h3><p>【説明】</p></li>
+        <li><span class="p-flow__step">Step</span><h3 class="p-flow__title">【ステップ】</h3><p>【説明】</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ▼ よくある質問(details を増減)================================= -->
+  <section class="l-sec p-faq" id="faq">
+    <div class="l-wrap">
+      <div class="c-sec-head c-sec-head--center" data-reveal>
+        <span class="c-sec-head__en">Q&amp;A</span>
+        <h2 class="c-sec-head__ja">よくある質問</h2>
+      </div>
+      <div class="p-faq__list" data-reveal>
+        <details class="p-faq__item"><summary>【質問】</summary><p class="p-faq__a">【回答】</p></details>
+        <details class="p-faq__item"><summary>【質問】</summary><p class="p-faq__a">【回答】</p></details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ▼ 店舗・会社情報(店舗がない商品LPなら削除)====================== -->
+  <section class="l-sec l-sec--alt p-info" id="access">
+    <div class="l-wrap">
+      <div class="c-sec-head" data-reveal>
+        <span class="c-sec-head__en">Access</span>
+        <h2 class="c-sec-head__ja">店舗情報</h2>
+      </div>
+      <div class="p-info__inner" data-reveal>
+        <dl class="c-dl">
+          <dt>店舗名</dt><dd>【】</dd>
+          <dt>住所</dt><dd>【】</dd>
+          <dt>営業時間</dt><dd>【】</dd>
+        </dl>
+        <!-- Googleマップを使う場合は figure を <iframe> に置き換え -->
+        <figure class="c-media" style="--ratio:3/2"><img src="images/map.svg" alt="地図" width="1200" height="800" loading="lazy"></figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ▼ 最後のCTA ==================================================== -->
+  <section class="p-cta" id="cta">
+    <div class="p-cta__bg"><img src="images/cta.svg" alt="" width="1600" height="900" loading="lazy"></div>
+    <div class="l-wrap p-cta__inner" data-reveal>
+      <span class="c-sec-head__en">Contact</span>
+      <h2 class="p-cta__title">【最後のひと押しのコピー】</h2>
+      <p>【オファーの再提示】</p>
+      <div class="c-btn-group c-btn-group--center"><a class="c-btn c-btn--light c-btn--lg" href="#cta">【申込ボタン】</a></div>
+    </div>
+  </section>
+</main>
+
+<footer class="l-footer">
+  <div class="l-wrap l-footer__inner">
+    <a class="l-footer__logo" href="#top">BRAND</a>
+    <ul class="l-footer__links">
+      <li><a href="#top">特定商取引法に基づく表記</a></li>
+      <li><a href="#top">プライバシーポリシー</a></li>
+    </ul>
+    <p>© <span data-year></span> BRAND</p>
+  </div>
+</footer>
+
+<div class="c-sticky"><a class="c-btn" href="#cta">【申込ボタン】</a></div>
+
+<script src="../../assets/js/lp-base.js" defer></script>
+</body>
+</html>

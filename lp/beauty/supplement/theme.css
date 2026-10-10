@@ -1,0 +1,49 @@
+/* =====================================================================
+   YORUNE(サプリメント・機能性表示食品)— テーマ設定
+   ===================================================================== */
+:root{
+  --c-bg:#fbf9f4;
+  --c-bg-alt:#f3eee3;
+  --c-surface:#ffffff;
+  --c-text:#262b45;
+  --c-muted:#676b83;
+  --c-line:#e6e0d2;
+  --c-main:#262f5c;
+  --c-on-main:#ffffff;
+  --c-accent:#b8955a;
+  --c-dark:#1d2547;
+  --c-on-dark:#ffffff;
+
+  --f-body:"Noto Sans JP","Hiragino Sans","Yu Gothic",sans-serif;
+  --f-head:"Zen Maru Gothic","Hiragino Maru Gothic ProN",sans-serif;
+  --f-en:"Playfair Display",serif;
+  --en-style:italic;
+  --en-size:clamp(34px,5vw,64px);
+  --head-weight:700;
+  --ls-head:.08em;
+
+  --radius:8px;
+  --radius-lg:16px;
+  --radius-btn:999px;
+
+  --hero-overlay:linear-gradient(90deg,rgba(20,24,52,.78) 0%,rgba(20,24,52,.35) 45%,rgba(20,24,52,0) 70%);
+  --hero-bg-sp:#1d2547;   /* SP時、画像の下の背景色 */
+  --hero-text-sp:#ffffff;
+  --cta-overlay:rgba(20,24,52,.3);
+}
+/* --- このLPだけの調整 --- */
+.p-check{max-width:760px;margin:0 auto;background:var(--c-surface);border-radius:var(--radius-lg);padding:clamp(24px,4vw,48px)}
+.p-check label{display:flex;gap:14px;align-items:flex-start;padding:14px 0;border-bottom:1px dashed var(--c-line);cursor:pointer;line-height:1.7}
+.p-check input{width:20px;height:20px;margin-top:4px;flex:none;accent-color:var(--c-main)}
+.p-check__out{margin-top:24px;min-height:1.8em;font-family:var(--f-head);font-size:18px;color:var(--c-main);text-align:center}
+.p-func{display:grid;gap:40px;align-items:center}
+@media(min-width:900px){.p-func{grid-template-columns:.9fr 1.1fr;gap:72px}}
+.p-func__mg{position:absolute;right:16px;bottom:16px;background:rgba(255,255,255,.92);border-radius:var(--radius-lg);padding:14px 22px;text-align:center;line-height:1.4}
+.p-func__mg b{display:block;font-family:var(--f-en);font-size:40px;color:var(--c-main);font-weight:500}
+.p-func__mg span{font-size:11px;color:var(--c-muted)}
+.p-func__list{display:grid;gap:28px}
+.p-func__list h3{font-size:19px;display:flex;align-items:center;gap:12px}
+.p-func__list h3::before{content:"";width:10px;height:10px;border-radius:50%;background:var(--c-accent);flex:none}
+.p-func__list p{color:var(--c-muted);margin-top:6px;padding-left:22px}
+.p-disclosure{border:1px solid var(--c-main);border-radius:var(--radius-lg);padding:24px 28px;background:var(--c-surface);font-size:13px;line-height:1.9}
+.p-disclosure b{display:block;font-size:14px;margin-bottom:6px}

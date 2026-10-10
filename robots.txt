@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /lp/_templates/
 
 Sitemap: https://u-uto.github.io/sitemap.xml

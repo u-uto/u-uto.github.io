@@ -1,0 +1,30 @@
+/* =====================================================================
+   SORA(エステサロン)— テーマ設定
+   色・フォント・角丸はここだけで変更できます。
+   ===================================================================== */
+:root{
+  --c-bg:#fbf8f5;
+  --c-bg-alt:#f3ece6;
+  --c-surface:#ffffff;
+  --c-text:#3d3232;
+  --c-muted:#7a6c69;
+  --c-line:#e6dbd3;
+  --c-main:#8c6f6a;
+  --c-on-main:#ffffff;
+  --c-accent:#b39274;
+  --c-dark:#5b4646;
+  --c-on-dark:#ffffff;
+
+  --f-body:"Zen Kaku Gothic New","Hiragino Sans","Yu Gothic",sans-serif;
+  --f-head:"Shippori Mincho","Yu Mincho",serif;
+  --f-en:"Cormorant Garamond",serif;
+  --en-style:italic;
+
+  --radius-lg:2px;
+  --radius-btn:999px;
+
+  /* ヒーロー:明るい画像に濃い文字を重ねる */
+  --hero-text:var(--c-text);
+  --hero-overlay:linear-gradient(90deg,rgba(251,248,245,.94) 0%,rgba(251,248,245,.7) 38%,rgba(251,248,245,0) 68%);
+  --cta-overlay:rgba(61,40,40,.35);
+}
