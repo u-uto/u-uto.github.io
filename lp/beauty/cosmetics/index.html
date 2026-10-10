@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NUANCE クッションファンデーション | 3色お試しセット 1,100円</title>
+<link rel="icon" href="../../../favicon.svg" type="image/svg+xml">
+<meta name="description" content="素肌っぽいのに、夕方までくずれにくい。自分の色が分かる3色お試しセットを送料無料1,100円でお届けします。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#2e2420; --brown:#7a4a36; --terra:#c47a5a; --sand:#efe3d6; --cream:#faf6f1; --line:#e3d4c6; --muted:#6f5c52;
+  --en:"Cormorant Garamond",serif;
+  --serif:"Noto Serif JP","Yu Mincho",serif;
+  --sans:"Noto Sans JP","Hiragino Sans","Yu Gothic",sans-serif;
+}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+body{font-family:var(--sans);color:var(--ink);background:var(--cream);line-height:1.9;font-size:16px;padding-bottom:72px}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--brown);outline-offset:3px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+h1,h2,h3{font-family:var(--serif);font-weight:700;line-height:1.5}
+h2{font-size:clamp(24px,4vw,34px);margin-bottom:12px}
+.eyebrow{font-family:var(--en);font-size:18px;letter-spacing:.2em;color:var(--terra);display:block;margin-bottom:4px}
+.lead{max-width:34em;color:var(--muted)}
+section{padding:88px 0}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+
+header{position:sticky;top:0;z-index:10;background:rgba(250,246,241,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
+.logo{font-family:var(--en);font-size:26px;letter-spacing:.32em;text-decoration:none}
+header nav{display:flex;gap:28px;font-size:14px}
+header nav a{text-decoration:none}
+header nav a:hover{text-decoration:underline}
+@media(max-width:760px){header nav{display:none}}
+
+.btn{display:inline-block;background:var(--brown);color:#fff;text-decoration:none;padding:16px 36px;border-radius:4px;font-weight:700;letter-spacing:.05em;transition:background .2s;border:0;font:inherit;font-weight:700;cursor:pointer}
+.btn:hover{background:var(--ink)}
+.btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--ink)}
+.btn.ghost:hover{background:var(--sand)}
+
+/* hero */
+.hero{padding:64px 0 96px;background:var(--sand);overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+.hero h1{font-size:clamp(32px,5.6vw,54px);margin-bottom:24px;animation:rise .9s ease both}
+@keyframes rise{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+.hero p{max-width:30em;margin-bottom:28px}
+.badges{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:28px;padding:0;list-style:none}
+.badges li{font-size:13px;border:1px solid var(--brown);border-radius:999px;padding:4px 14px;background:var(--cream)}
+.offer{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:24px}
+.offer s{color:var(--muted);font-size:14px}
+.offer b{font-family:var(--serif);font-size:40px;color:var(--brown);line-height:1}
+.offer small{font-size:13px}
+.hero .cta{display:flex;flex-wrap:wrap;gap:14px}
+/* product illustration: compact case */
+.compact{position:relative;aspect-ratio:1;max-width:440px;margin:0 auto;width:100%}
+.compact .lid{position:absolute;inset:4% 10% 40% 10%;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff 0,#e9d9cb 45%,#cdb39f 100%);box-shadow:0 20px 40px rgba(122,74,54,.18)}
+.compact .lid span{position:absolute;inset:0;display:grid;place-items:center;font-family:var(--en);letter-spacing:.4em;font-size:22px;color:var(--brown)}
+.compact .base{position:absolute;inset:44% 4% 0 4%;border-radius:50%;background:#3a2c26;box-shadow:0 24px 50px rgba(46,36,32,.25)}
+.compact .puff{position:absolute;inset:50% 14% 8% 14%;border-radius:50%;background:radial-gradient(circle at 40% 35%,#f3dac6,#d9a98a)}
+.swatches{position:absolute;right:0;top:0;display:flex;flex-direction:column;gap:10px}
+.swatches i{display:block;width:34px;height:34px;border-radius:50%;border:3px solid #fff;box-shadow:0 2px 6px rgba(0,0,0,.12)}
+@media(max-width:820px){.hero .wrap{grid-template-columns:1fr}.compact{max-width:300px}}
+
+/* worries */
+.worries ul{list-style:none;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px;margin-top:32px}
+.worries li{background:#fff;padding:22px;border-radius:4px;border-bottom:3px solid var(--terra)}
+
+/* features */
+.features{background:#fff}
+.features .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;margin-top:40px}
+.features article{background:var(--cream);padding:32px 28px;border-radius:4px}
+.features .num{font-family:var(--en);font-size:44px;color:var(--terra);line-height:1}
+.features h3{font-size:20px;margin:8px 0}
+.features p{font-size:15px;color:var(--muted)}
+
+/* shade finder */
+.finder .box{background:#fff;border:1px solid var(--line);border-radius:8px;padding:32px;margin-top:32px;display:grid;grid-template-columns:1fr 1fr;gap:40px}
+@media(max-width:760px){.finder .box{grid-template-columns:1fr;padding:24px}}
+.finder fieldset{border:0;padding:0;margin-bottom:24px}
+.finder legend{font-weight:700;margin-bottom:10px}
+.choices{display:flex;flex-wrap:wrap;gap:8px}
+.choices label{cursor:pointer}
+.choices input{position:absolute;opacity:0}
+.choices span{display:inline-block;border:1px solid var(--line);border-radius:999px;padding:8px 16px;font-size:14px;transition:.15s}
+.choices input:checked+span{background:var(--brown);color:#fff;border-color:var(--brown)}
+.choices input:focus-visible+span{outline:3px solid var(--terra);outline-offset:2px}
+.result{background:var(--sand);border-radius:8px;padding:28px;display:flex;flex-direction:column;justify-content:center;gap:12px;text-align:center}
+.result .chip{width:96px;height:96px;border-radius:50%;margin:0 auto;border:4px solid #fff;box-shadow:0 4px 12px rgba(0,0,0,.1);transition:background .3s}
+.result .name{font-family:var(--serif);font-size:24px}
+.result p{font-size:14px;color:var(--muted)}
+
+/* price */
+.price .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px;margin-top:40px;align-items:stretch}
+.plan{background:#fff;border:1px solid var(--line);border-radius:8px;padding:32px 28px;display:flex;flex-direction:column}
+.plan.rec{border:2px solid var(--brown);position:relative}
+.plan.rec::before{content:"はじめての方に";position:absolute;top:-14px;left:24px;background:var(--brown);color:#fff;font-size:12px;padding:2px 12px;border-radius:999px}
+.plan h3{font-size:19px}
+.plan .amount{font-family:var(--serif);font-size:32px;margin:12px 0}
+.plan .amount small{font-size:14px;font-family:var(--sans)}
+.plan ul{padding-left:1.2em;font-size:14px;color:var(--muted);flex:1;margin-bottom:20px}
+.plan .btn{text-align:center}
+.note{font-size:13px;color:var(--muted);margin-top:16px}
+
+/* how to */
+.howto{background:var(--sand)}
+.howto ol{list-style:none;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:24px;margin-top:32px;counter-reset:s}
+.howto li{counter-increment:s;background:var(--cream);padding:24px;border-radius:4px}
+.howto li::before{content:"STEP " counter(s);display:block;font-family:var(--en);font-size:18px;letter-spacing:.15em;color:var(--terra)}
+.howto strong{display:block;font-family:var(--serif);font-size:18px;margin:4px 0}
+
+/* voice */
+.voice .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;margin-top:32px}
+.voice blockquote{background:#fff;padding:28px;border-radius:4px;border-top:3px solid var(--sand)}
+.voice cite{display:block;margin-top:12px;font-style:normal;font-size:13px;color:var(--muted)}
+
+/* faq */
+.faq{background:#fff}
+.faq details{border-bottom:1px solid var(--line);padding:18px 0;max-width:760px}
+.faq summary{cursor:pointer;font-weight:700;list-style:none;display:flex;justify-content:space-between;gap:16px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font-size:22px;line-height:1;color:var(--brown)}
+.faq details[open] summary::after{content:"−"}
+.faq details p{margin-top:12px;color:var(--muted);font-size:15px}
+
+.final{background:var(--ink);color:#fff;text-align:center}
+.final h2{color:#fff}
+.final p{margin:0 auto 32px;max-width:30em;color:#dccfc6}
+.final .btn{background:var(--terra)}
+.final .btn:hover{background:#fff;color:var(--ink)}
+
+footer{padding:40px 0;font-size:13px;color:var(--muted);text-align:center}
+footer p+p{margin-top:6px}
+
+.sticky{position:fixed;left:0;right:0;bottom:0;z-index:20;background:#fff;border-top:1px solid var(--line);padding:10px 16px;display:none}
+.sticky .btn{display:block;text-align:center;padding:14px}
+@media(max-width:760px){.sticky{display:block}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a class="logo" href="#top">NUANCE</a>
+    <nav aria-label="ページ内メニュー">
+      <a href="#feature">特長</a>
+      <a href="#finder">色診断</a>
+      <a href="#price">価格</a>
+      <a href="#voice">使用者の声</a>
+      <a href="#faq">よくある質問</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <ul class="badges">
+          <li>SPF35・PA+++</li><li>石けんオフ</li><li>全6色</li>
+        </ul>
+        <h1>素肌っぽいのに、<br>夕方まできれい。</h1>
+        <p>薄くのびて、毛穴や色ムラは自然にカバー。皮脂を吸着するパウダーを配合し、メイクしたての仕上がりが続きます。</p>
+        <div class="offer">
+          <span>3色お試しセット</span><b>1,100円</b><small>税込・送料無料</small>
+        </div>
+        <div class="cta">
+          <a class="btn" href="#price">お試しセットを申し込む</a>
+          <a class="btn ghost" href="#finder">自分の色を診断する</a>
+        </div>
+      </div>
+      <figure class="compact" role="img" aria-label="クッションファンデーションのイメージ(サンプル)">
+        <div class="base"></div><div class="puff"></div>
+        <div class="lid"><span>NUANCE</span></div>
+        <div class="swatches" aria-hidden="true">
+          <i style="background:#f3dcc8"></i><i style="background:#ebcfb5"></i><i style="background:#dfbc9c"></i>
+        </div>
+      </figure>
+    </div>
+  </section>
+
+  <section class="worries">
+    <div class="wrap">
+      <span class="eyebrow">TROUBLE</span>
+      <h2>ファンデーション、こんなことで迷っていませんか</h2>
+      <ul>
+        <li>昼過ぎには小鼻のまわりがくずれている</li>
+        <li>カバー力を求めると厚塗りに見える</li>
+        <li>店頭で選んだ色が、家だと浮いて見える</li>
+        <li>マスクにつきやすく、何度も直している</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="features" id="feature">
+    <div class="wrap">
+      <span class="eyebrow">FEATURE</span>
+      <h2>NUANCEの3つの特長</h2>
+      <p class="lead">「薄づき」と「くずれにくさ」を、どちらもあきらめないために。</p>
+      <div class="grid">
+        <article>
+          <div class="num">01</div>
+          <h3>ひと塗りで、ムラのない薄膜</h3>
+          <p>微細なパウダーが肌の凹凸にフィット。重ねても厚く見えにくく、部分的にカバー力を足せます。</p>
+        </article>
+        <article>
+          <div class="num">02</div>
+          <h3>皮脂を吸着して、くずれにくく</h3>
+          <p>皮脂吸着パウダーを配合。テカリやヨレを防ぎ、つけたての仕上がりが長持ちします。</p>
+        </article>
+        <article>
+          <div class="num">03</div>
+          <h3>石けんで落とせるやさしさ</h3>
+          <p>専用クレンジングは不要。洗顔料で落とせるので、毎日のメイクオフが手軽です。</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="finder" id="finder">
+    <div class="wrap">
+      <span class="eyebrow">SHADE FINDER</span>
+      <h2>30秒で分かる、あなたの色</h2>
+      <p class="lead">2つの質問に答えると、おすすめの色が表示されます。お試しセットには、診断結果の色と前後の2色が入ります。</p>
+      <form class="box" id="shadeForm" onsubmit="return false">
+        <div>
+          <fieldset>
+            <legend>Q1. 肌の明るさは?</legend>
+            <div class="choices">
+              <label><input type="radio" name="tone" value="0"><span>明るめ</span></label>
+              <label><input type="radio" name="tone" value="1" checked><span>ふつう</span></label>
+              <label><input type="radio" name="tone" value="2"><span>暗め</span></label>
+            </div>
+          </fieldset>
+          <fieldset>
+            <legend>Q2. 似合うアクセサリーは?</legend>
+            <div class="choices">
+              <label><input type="radio" name="hue" value="pink" checked><span>シルバー</span></label>
+              <label><input type="radio" name="hue" value="ochre"><span>ゴールド</span></label>
+            </div>
+          </fieldset>
+        </div>
+        <div class="result" aria-live="polite">
+          <div class="chip" id="chip"></div>
+          <div class="name" id="shadeName"></div>
+          <p id="shadeDesc"></p>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <section class="price" id="price">
+    <div class="wrap">
+      <span class="eyebrow">PRICE</span>
+      <h2>価格</h2>
+      <p class="lead">定期購入の縛りはありません。必要なときに、必要な分だけ。</p>
+      <div class="grid">
+        <div class="plan rec">
+          <h3>3色お試しセット</h3>
+          <div class="amount">1,100<small>円(税込)</small></div>
+          <ul><li>ミニサイズ3色(約7日分×3)</li><li>送料無料・お一人様1回限り</li><li>使い方ガイドつき</li></ul>
+          <a class="btn" href="#price">申し込む</a>
+        </div>
+        <div class="plan">
+          <h3>本品(パフ・ケースつき)</h3>
+          <div class="amount">4,180<small>円(税込)</small></div>
+          <ul><li>12g(約2か月分)</li><li>全6色からお選びいただけます</li><li>5,000円以上で送料無料</li></ul>
+          <a class="btn ghost" href="#price">購入する</a>
+        </div>
+        <div class="plan">
+          <h3>レフィル</h3>
+          <div class="amount">3,080<small>円(税込)</small></div>
+          <ul><li>12g・パフ1枚つき</li><li>お手持ちのケースに付け替え</li><li>ゴミを減らせる詰め替え用</li></ul>
+          <a class="btn ghost" href="#price">購入する</a>
+        </div>
+      </div>
+      <p class="note">※使用量の目安は1日1回使用した場合です。お届けは注文から3〜5営業日です。</p>
+    </div>
+  </section>
+
+  <section class="howto">
+    <div class="wrap">
+      <span class="eyebrow">HOW TO USE</span>
+      <h2>きれいに仕上げる使い方</h2>
+      <ol>
+        <li><strong>パフに軽くとる</strong>ケースのスポンジを2〜3回軽く押さえます。</li>
+        <li><strong>中心から外へ</strong>頬・額・あごの順に、内側から外側へ軽くたたき込みます。</li>
+        <li><strong>気になる部分に重ねる</strong>小鼻や目のまわりは、パフの端で少量を重ねます。</li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="voice" id="voice">
+    <div class="wrap">
+      <span class="eyebrow">VOICE</span>
+      <h2>使用者の声</h2>
+      <div class="grid">
+        <blockquote>3色を並べて試せたので、初めて「浮かない色」を選べました。夕方に鏡を見ても直す回数が減りました。<cite>30代・混合肌</cite></blockquote>
+        <blockquote>薄づきなのに色ムラが目立たなくなり、すっぴん風なのがうれしい。洗顔だけで落ちるのも楽です。<cite>20代・乾燥肌</cite></blockquote>
+        <blockquote>マスクへの色移りが少ないと感じます。レフィルがあるのでケースを使い続けられるのも◎。<cite>40代・脂性肌</cite></blockquote>
+      </div>
+      <p class="note">※サンプル用の架空の声です。感じ方には個人差があります。</p>
+    </div>
+  </section>
+
+  <section class="faq" id="faq">
+    <div class="wrap">
+      <span class="eyebrow">Q&amp;A</span>
+      <h2>よくある質問</h2>
+      <details><summary>敏感肌でも使えますか?</summary><p>アレルギーテスト済みですが、すべての方にアレルギーが起こらないわけではありません。気になる方は腕の内側で試してからお使いください。</p></details>
+      <details><summary>下地は必要ですか?</summary><p>UVカット効果があるため、単品でもお使いいただけます。乾燥が気になる日は保湿下地との併用がおすすめです。</p></details>
+      <details><summary>お試しセット後に、定期購入になりますか?</summary><p>なりません。お試しセットは単品購入で、自動でお届けが続くことはありません。</p></details>
+      <details><summary>色が合わなかった場合は?</summary><p>本品は未開封・到着後8日以内であれば、別の色に1回無料で交換できます。</p></details>
+    </div>
+  </section>
+
+  <section class="final">
+    <div class="wrap">
+      <h2>まずは3色、並べてみてください。</h2>
+      <p>自分に合う色が分かる、お試しセット。送料無料1,100円でお届けします。</p>
+      <a class="btn" href="#price">お試しセットを申し込む</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>NUANCE(サンプル)/ 特定商取引法に基づく表記 / プライバシーポリシー</p>
+    <p>このページはポートフォリオ用の架空ブランドのLPです。 <a href="../../../">ポートフォリオに戻る</a></p>
+  </div>
+</footer>
+
+<div class="sticky"><a class="btn" href="#price">3色お試しセット 1,100円</a></div>
+
+<script>
+// Shade finder: 3 brightness levels × 2 undertones → 6 shades
+const shades = {
+  pink:  [["P01 ライトピンク","#f3dcd0"],["P02 ナチュラルピンク","#e8c7b4"],["P03 ヘルシーピンク","#d4a88f"]],
+  ochre: [["O01 ライトオークル","#f1dcc3"],["O02 ナチュラルオークル","#e6c6a2"],["O03 ヘルシーオークル","#cfa47c"]]
+};
+const form = document.getElementById("shadeForm");
+function update(){
+  const tone = +form.tone.value, hue = form.hue.value;
+  const [name, color] = shades[hue][tone];
+  document.getElementById("chip").style.background = color;
+  document.getElementById("shadeName").textContent = name;
+  document.getElementById("shadeDesc").textContent =
+    (hue === "pink" ? "赤みのある血色感を活かす色です。" : "黄みを含んだ、肌なじみのよい色です。") + "お試しセットではこの色を中心に3色お届けします。";
+}
+form.addEventListener("change", update);
+update();
+</script>
+</body>
+</html>

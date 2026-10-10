@@ -1,0 +1,93 @@
+/* Shared styles for portfolio pages (top / category / 404).
+   Each LP under /lp/ is self-contained and does not use this file. */
+:root{
+  --ink:#1c1c1e; --muted:#6b6b70; --line:#e4e2dd; --bg:#f7f6f3; --card:#fff; --accent:#5b3d63;
+  --sans:"Noto Sans JP","Hiragino Sans","Yu Gothic",sans-serif;
+  --en:"Inter",var(--sans);
+}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+body{font-family:var(--sans);color:var(--ink);background:var(--bg);line-height:1.8;font-size:16px}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+h1,h2,h3{line-height:1.4;font-weight:700}
+
+.site-header{border-bottom:1px solid var(--line);background:rgba(247,246,243,.92);backdrop-filter:blur(8px);position:sticky;top:0;z-index:10}
+.site-header .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
+.site-logo{font-family:var(--en);font-weight:700;font-size:18px;letter-spacing:.06em;text-decoration:none}
+.site-header nav{display:flex;gap:24px;font-size:14px}
+.site-header nav a{text-decoration:none;color:var(--muted)}
+.site-header nav a:hover,.site-header nav a[aria-current]{color:var(--ink)}
+
+.intro{padding:96px 0 64px}
+.intro .label{font-family:var(--en);font-size:13px;letter-spacing:.2em;color:var(--muted);margin-bottom:12px;display:block}
+.intro h1{font-size:clamp(30px,5.2vw,52px);margin-bottom:20px}
+.intro p{max-width:36em;color:var(--muted)}
+.crumb{font-size:13px;color:var(--muted);margin-bottom:16px}
+.crumb a{text-decoration:none}
+.crumb a:hover{text-decoration:underline}
+
+.section{padding:48px 0 96px}
+.section-head{display:flex;justify-content:space-between;align-items:baseline;gap:16px;margin-bottom:24px;flex-wrap:wrap}
+.section-head h2{font-size:24px}
+.section-head p{color:var(--muted);font-size:14px}
+
+.works{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:24px;list-style:none;padding:0}
+.work{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;transition:transform .2s,box-shadow .2s}
+.work:hover{transform:translateY(-4px);box-shadow:0 14px 32px rgba(0,0,0,.08)}
+.work a.cover{display:block;text-decoration:none}
+.thumb{aspect-ratio:16/10;display:flex;flex-direction:column;justify-content:flex-end;padding:20px;position:relative;overflow:hidden}
+.thumb .brand{font-size:22px;font-weight:700;letter-spacing:.12em;position:relative}
+.thumb .copy{font-size:13px;opacity:.85;position:relative}
+.thumb::before,.thumb::after{content:"";position:absolute;border-radius:50%}
+.work .body{padding:20px;display:flex;flex-direction:column;gap:8px;flex:1}
+.work h3{font-size:17px}
+.work h3 a{text-decoration:none}
+.work h3 a:hover{text-decoration:underline}
+.work p{font-size:14px;color:var(--muted)}
+.tags{display:flex;flex-wrap:wrap;gap:6px;list-style:none;padding:0;margin-top:auto;padding-top:8px}
+.tags li{font-size:12px;background:var(--bg);border-radius:999px;padding:2px 10px;color:var(--muted)}
+
+/* per-work thumbnail palettes, mirroring each LP */
+.t-salon{background:linear-gradient(180deg,#f0dfe0,#fbf8f6);color:#33243a}
+.t-salon::before{width:120px;height:120px;right:-20px;top:-20px;background:#cfd8c9}
+.t-salon::after{width:60px;height:60px;right:70px;top:50px;background:#5b3d63;opacity:.85}
+.t-cosmetics{background:#efe3d6;color:#2e2420}
+.t-cosmetics::before{width:140px;height:140px;right:-10px;top:-30px;background:radial-gradient(circle at 35% 30%,#fff,#cdb39f)}
+.t-cosmetics::after{width:36px;height:36px;right:24px;top:110px;background:#c47a5a;border:3px solid #fff}
+.t-skincare{background:linear-gradient(170deg,#e6f1f3,#fbfdfd);color:#1f3140}
+.t-skincare::before{width:150px;height:150px;right:-30px;top:-40px;border:1px solid #8fc1cf}
+.t-skincare::after{width:90px;height:90px;right:0;top:-10px;border:1px solid #2f5a73}
+.t-supplement{background:radial-gradient(ellipse at 80% 0%,#3a4682,#1d2547 60%);color:#fff}
+.t-supplement::before{width:90px;height:90px;right:30px;top:24px;background:radial-gradient(circle at 35% 35%,#fff6d8,#f4d27a);box-shadow:0 0 40px rgba(244,210,122,.4)}
+.t-hair{background:#effaf7;color:#1e3532}
+.t-hair::before{width:180px;height:180px;right:-50px;top:-60px;background:#bfe7df}
+.t-hair::after{width:40px;height:40px;right:40px;top:90px;background:#ffb59e}
+.t-diet{background:#141414;color:#fff}
+.t-diet::before{width:0;height:0}
+.t-diet .bars{position:absolute;right:20px;bottom:0;display:flex;gap:6px;align-items:flex-end;height:70%}
+.t-diet .bars i{width:18px;background:#232323}
+.t-diet .bars i:last-child{background:#ff5a3c}
+
+.category{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:28px;display:grid;grid-template-columns:1fr auto;gap:16px;align-items:center;text-decoration:none;transition:box-shadow .2s}
+.category:hover{box-shadow:0 10px 24px rgba(0,0,0,.06)}
+.category h3{font-size:20px}
+.category p{color:var(--muted);font-size:14px}
+.category .count{font-family:var(--en);font-size:14px;color:var(--muted);white-space:nowrap}
+.category .count::after{content:" →"}
+.category-list{display:grid;gap:16px}
+
+.about{border-top:1px solid var(--line);padding:64px 0}
+.about dl{display:grid;grid-template-columns:140px 1fr;gap:12px 24px;max-width:720px;font-size:15px}
+.about dt{color:var(--muted)}
+@media(max-width:600px){.about dl{grid-template-columns:1fr;gap:2px}.about dd{margin-bottom:12px}}
+
+.site-footer{border-top:1px solid var(--line);padding:32px 0;font-size:13px;color:var(--muted)}
+
+.notfound{min-height:70vh;display:grid;place-items:center;text-align:center;padding:64px 24px}
+.notfound .code{font-family:var(--en);font-size:96px;font-weight:700;line-height:1;color:var(--line)}
+.notfound p{color:var(--muted);margin:16px 0 28px}
+.btn-link{display:inline-block;background:var(--ink);color:#fff;text-decoration:none;padding:12px 28px;border-radius:999px;font-weight:700}
+.btn-link:hover{background:var(--accent)}

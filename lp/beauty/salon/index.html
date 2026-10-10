@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>肌と向き合うエステサロン SORA | 初回体験 50% OFF</title>
+<link rel="icon" href="../../../favicon.svg" type="image/svg+xml">
+<meta name="description" content="ゆらぎ肌・乾燥・くすみに。肌診断から始めるパーソナルフェイシャル。初回体験は通常9,800円が4,900円。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#33243a; --plum:#5b3d63; --blush:#f0dfe0; --sage:#cfd8c9; --bone:#fbf8f6; --line:#e4d6d8;
+  --serif:"Shippori Mincho","Hiragino Mincho ProN","Yu Mincho",serif;
+  --sans:"Zen Kaku Gothic New","Hiragino Sans","Yu Gothic",sans-serif;
+}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+body{font-family:var(--sans);color:var(--ink);background:var(--bone);line-height:1.9;font-size:16px;padding-bottom:72px}
+img,svg{max-width:100%}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--plum);outline-offset:3px}
+.wrap{max-width:1040px;margin:0 auto;padding:0 24px}
+h1,h2,h3{font-family:var(--serif);font-weight:700;line-height:1.5}
+h2{font-size:clamp(24px,4vw,34px);margin-bottom:12px}
+.lead{max-width:34em;color:#5d4d63}
+section{padding:88px 0}
+
+/* header */
+header{position:sticky;top:0;z-index:10;background:rgba(251,248,246,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
+.logo{font-family:var(--serif);font-size:22px;letter-spacing:.3em;text-decoration:none}
+header nav{display:flex;gap:28px;font-size:14px}
+header nav a{text-decoration:none}
+header nav a:hover{text-decoration:underline}
+@media(max-width:720px){header nav{display:none}}
+
+/* buttons */
+.btn{display:inline-block;background:var(--plum);color:#fff;text-decoration:none;padding:16px 36px;border-radius:999px;font-weight:700;transition:background .2s}
+.btn:hover{background:var(--ink)}
+.btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--ink)}
+.btn.ghost:hover{background:var(--blush)}
+
+/* hero */
+.hero{padding:72px 0 96px;background:linear-gradient(180deg,var(--blush) 0%,var(--bone) 100%);overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center}
+.hero h1{font-size:clamp(32px,6vw,56px);letter-spacing:.04em;margin-bottom:24px;animation:rise .9s ease both}
+@keyframes rise{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+.hero p{max-width:30em;margin-bottom:32px}
+.offer{display:inline-block;border:1px solid var(--plum);border-radius:8px;padding:10px 18px;margin-bottom:28px;font-size:15px;background:#fff}
+.offer b{font-family:var(--serif);font-size:22px;color:var(--plum)}
+.hero .cta{display:flex;flex-wrap:wrap;gap:14px}
+.visual{aspect-ratio:4/5;position:relative}
+.visual .a{position:absolute;inset:0 0 14% 18%;border-radius:200px 200px 24px 24px;background:linear-gradient(160deg,var(--sage),#e9ddd9)}
+.visual .b{position:absolute;left:0;bottom:0;width:46%;aspect-ratio:1;border-radius:50%;background:var(--plum);opacity:.9}
+.visual .c{position:absolute;right:8%;top:10%;width:26%;aspect-ratio:1;border-radius:50%;border:1px solid var(--plum)}
+.visual figcaption{position:absolute;left:6%;bottom:6%;color:#fff;font-family:var(--serif);font-size:15px;line-height:1.7;width:40%}
+@media(max-width:820px){.hero .wrap{grid-template-columns:1fr}.visual{max-width:340px;margin:0 auto;width:100%}}
+
+/* worries */
+.worries ul{list-style:none;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-top:32px}
+.worries li{background:#fff;border-left:4px solid var(--sage);padding:18px 20px;border-radius:4px}
+
+/* reasons */
+.reasons{background:#fff}
+.reasons .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:40px;margin-top:40px}
+.reasons h3{font-size:20px;margin-bottom:8px}
+.reasons p{color:#5d4d63;font-size:15px}
+.reasons .grid>div{border-top:2px solid var(--plum);padding-top:20px}
+
+/* menu */
+.menu table{width:100%;border-collapse:collapse;margin-top:32px;background:#fff}
+.menu th,.menu td{padding:20px 18px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+.menu th{font-family:var(--serif);font-size:18px;width:34%}
+.menu td small{display:block;color:#6e5f74}
+.menu .price{font-family:var(--serif);font-size:20px;white-space:nowrap}
+.menu tr.first{background:var(--blush)}
+.note{font-size:13px;color:#6e5f74;margin-top:12px}
+@media(max-width:600px){.menu th,.menu td{display:block;width:auto;padding:8px 16px}.menu tr{display:block;border-bottom:1px solid var(--line);padding:12px 0}.menu th,.menu td{border:0}}
+
+/* voice */
+.voice{background:var(--sage)}
+.voice .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;margin-top:32px}
+.voice blockquote{background:var(--bone);padding:28px;border-radius:4px}
+.voice cite{display:block;margin-top:12px;font-style:normal;font-size:13px;color:#5d4d63}
+
+/* flow */
+.flow ol{list-style:none;padding:0;margin-top:32px;display:grid;gap:0;max-width:640px}
+.flow li{display:grid;grid-template-columns:48px 1fr;gap:16px;padding:20px 0;border-bottom:1px solid var(--line)}
+.flow li::before{counter-increment:s;content:counter(s);font-family:var(--serif);font-size:28px;color:var(--plum);line-height:1.2}
+.flow ol{counter-reset:s}
+.flow strong{display:block;font-family:var(--serif);font-size:18px}
+
+/* faq */
+.faq details{border-bottom:1px solid var(--line);padding:18px 0;max-width:720px}
+.faq summary{cursor:pointer;font-weight:700;list-style:none;display:flex;justify-content:space-between;gap:16px}
+.faq summary::after{content:"+";font-size:22px;line-height:1;color:var(--plum)}
+.faq details[open] summary::after{content:"−"}
+.faq details p{margin-top:12px;color:#5d4d63;font-size:15px}
+
+/* final cta */
+.final{background:var(--plum);color:#fff;text-align:center}
+.final h2{color:#fff}
+.final p{margin:0 auto 32px;max-width:30em;color:#eadde9}
+.final .btn{background:#fff;color:var(--plum)}
+.final .btn:hover{background:var(--blush)}
+
+footer{padding:40px 0;font-size:13px;color:#6e5f74;text-align:center}
+footer p+p{margin-top:6px}
+
+/* sticky mobile cta */
+.sticky{position:fixed;left:0;right:0;bottom:0;z-index:20;background:#fff;border-top:1px solid var(--line);padding:10px 16px;display:none}
+.sticky .btn{display:block;text-align:center;padding:14px}
+@media(max-width:720px){.sticky{display:block}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a class="logo" href="#top">SORA</a>
+    <nav aria-label="ページ内メニュー">
+      <a href="#reason">選ばれる理由</a>
+      <a href="#menu">メニュー・料金</a>
+      <a href="#voice">お客様の声</a>
+      <a href="#faq">よくある質問</a>
+      <a href="#reserve">ご予約</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <p class="offer">初回体験 <b>4,900円</b>(通常9,800円)</p>
+        <h1>いまの肌を知ることから、<br>はじめませんか。</h1>
+        <p>乾燥、くすみ、ゆらぎ。肌の悩みは人それぞれ違います。SORAでは最初に肌診断を行い、あなたの肌に合わせた施術と家でのケアをご提案します。</p>
+        <div class="cta">
+          <a class="btn" href="#reserve">初回体験を予約する</a>
+          <a class="btn ghost" href="#menu">メニューを見る</a>
+        </div>
+      </div>
+      <figure class="visual" role="img" aria-label="サロンのイメージ(サンプル)">
+        <div class="a"></div><div class="b"></div><div class="c"></div>
+        <figcaption>肌診断 + フェイシャル<br>90分</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="worries">
+    <div class="wrap">
+      <h2>こんなお悩みはありませんか</h2>
+      <p class="lead">一つでも当てはまれば、肌の状態を一度きちんと見てみる時期かもしれません。</p>
+      <ul>
+        <li>化粧水をつけても夕方には乾燥する</li>
+        <li>季節の変わり目に肌が荒れやすい</li>
+        <li>ファンデーションのノリが悪くなった</li>
+        <li>何を使えばよいか分からなくなった</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="reasons" id="reason">
+    <div class="wrap">
+      <h2>SORAが選ばれる理由</h2>
+      <p class="lead">必要なことだけを、丁寧に行います。</p>
+      <div class="grid">
+        <div>
+          <h3>施術の前に、肌診断</h3>
+          <p>水分量・油分量・キメを専用機器で測定し、結果を見ながらご説明します。数値で確認できるので、変化も分かります。</p>
+        </div>
+        <div>
+          <h3>無理な勧誘はしません</h3>
+          <p>回数券や商品の購入をその場でおすすめすることはありません。ご検討の時間をお持ちください。</p>
+        </div>
+        <div>
+          <h3>完全個室・女性スタッフのみ</h3>
+          <p>1日の施術は3組まで。ゆっくりお話しいただける、落ち着いた空間をご用意しています。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="menu" id="menu">
+    <div class="wrap">
+      <h2>メニュー・料金</h2>
+      <p class="lead">すべて肌診断つきです。</p>
+      <table>
+        <caption class="sr-only" style="position:absolute;left:-9999px">メニューと料金の一覧</caption>
+        <tbody>
+          <tr class="first"><th>初回体験フェイシャル</th><td>90分<small>肌診断・クレンジング・パック・ホームケア相談</small></td><td class="price"><s style="font-size:14px;color:#6e5f74">9,800円</s><br>4,900円</td></tr>
+          <tr><th>ベーシックフェイシャル</th><td>75分<small>うるおいを整える基本のコース</small></td><td class="price">9,800円</td></tr>
+          <tr><th>エイジングケアフェイシャル</th><td>90分<small>ハリ・弾力が気になる方に</small></td><td class="price">13,200円</td></tr>
+          <tr><th>首・肩ほぐしオプション</th><td>15分<small>どのコースにも追加できます</small></td><td class="price">2,200円</td></tr>
+        </tbody>
+      </table>
+      <p class="note">表示は税込です。初回体験は一度のみ、メニューは変更になる場合があります。</p>
+    </div>
+  </section>
+
+  <section class="voice" id="voice">
+    <div class="wrap">
+      <h2>お客様の声</h2>
+      <div class="grid">
+        <blockquote>肌診断の数値を見ながら説明してもらえたので、自分の肌の状態がやっと分かりました。何も買わずに帰れたのも安心でした。<cite>30代・会社員</cite></blockquote>
+        <blockquote>3回通って、朝のファンデーションのノリが変わりました。家でのケアも無理のない内容で続けられています。<cite>40代・自営業</cite></blockquote>
+        <blockquote>個室で人目を気にせず過ごせました。仕事帰りでも予約が取りやすいのが助かります。<cite>20代・販売職</cite></blockquote>
+      </div>
+      <p class="note">※サンプル用の架空の声です。</p>
+    </div>
+  </section>
+
+  <section class="flow">
+    <div class="wrap">
+      <h2>ご来店の流れ</h2>
+      <ol>
+        <li><div><strong>ご予約</strong>下のボタンからお好きな日時を選びます。</div></li>
+        <li><div><strong>カウンセリング・肌診断</strong>お悩みを伺い、肌の状態を測定します。</div></li>
+        <li><div><strong>施術</strong>診断結果をもとに、フェイシャルを行います。</div></li>
+        <li><div><strong>ご説明・お会計</strong>結果とホームケアをお伝えします。</div></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="faq" id="faq">
+    <div class="wrap">
+      <h2>よくある質問</h2>
+      <details><summary>敏感肌でも受けられますか?</summary><p>はい。肌診断の結果と、使用中の化粧品を確認したうえで、刺激の少ない内容に調整します。事前にお知らせください。</p></details>
+      <details><summary>メイクをしたまま行ってもいいですか?</summary><p>そのままお越しください。施術前にクレンジングを行います。</p></details>
+      <details><summary>当日に勧誘はありますか?</summary><p>ありません。ご希望のときだけ、コースについてご説明します。</p></details>
+      <details><summary>キャンセルはできますか?</summary><p>前日までは無料で変更・キャンセルできます。当日は50%を頂戴します。</p></details>
+    </div>
+  </section>
+
+  <section class="final" id="reserve">
+    <div class="wrap">
+      <h2>まずは、肌診断から。</h2>
+      <p>初回体験は4,900円です。ご予約は24時間受け付けています。</p>
+      <a class="btn" href="#reserve">初回体験を予約する</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>SORA(サンプル)/ 営業時間 10:00〜19:00 / 不定休</p>
+    <p>このページはポートフォリオ用の架空サロンのLPです。 <a href="../../../">ポートフォリオに戻る</a></p>
+  </div>
+</footer>
+
+<div class="sticky"><a class="btn" href="#reserve">初回体験 4,900円で予約する</a></div>
+
+</body>
+</html>
